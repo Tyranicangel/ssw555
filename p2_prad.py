@@ -19,5 +19,6 @@ try:
 		print '===='
 		writer.write("===="+"\n")
 	filehandler.close()
+	writer.close()
 except IOError:
 	print 'This file does not exist.'

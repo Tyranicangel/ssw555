@@ -1,13 +1,14 @@
 import datetime
 import functools
-
+import prad
+import akshay
+import prabhjot
+import pranay
 
 def getDate(dateVal):
     if len(dateVal[0]) == 1:
         dateVal[0] = '0' + dateVal[0]
     return " ".join(dateVal)
-
-
 #    return datetime.datetime.strptime(' '.join(dateVal), '%d %b %Y')
 
 
@@ -34,10 +35,11 @@ taglist = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR',
 readable = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE']
 fname = "prabhjot.ged"
 
+out = {}
+prev = []
+
 try:
     filehandler = open(fname, 'r')
-    out = {}
-    prev = []
     for line in filehandler:
         dat = line.replace("/", "").split()
         if dat[0] == '0':
@@ -66,4 +68,10 @@ try:
     filehandler.close()
 except IOError:
     print('This file does not exist.')
-print(out)
+
+response=prad.run(out)+akshay.run(out)+prabhjot.run(out)+pranay.run(out)
+
+writer=open('reponse_'+fname+'.txt','w')
+writer.write(response)
+writer.close()
+
