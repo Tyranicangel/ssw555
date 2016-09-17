@@ -1,9 +1,10 @@
 import datetime
 import functools
-import prad
 import akshay
+import prad
 import prabhjot
 import pranay
+
 
 def getDate(dateVal):
     if len(dateVal[0]) == 1:
@@ -69,9 +70,16 @@ try:
 except IOError:
     print('This file does not exist.')
 
+
+
 response=prad.run(out)+akshay.run(out)+prabhjot.run(out)+pranay.run(out)
 
 writer=open('reponse_'+fname+'.txt','w')
 writer.write(response)
 writer.close()
 
+
+print("Families : ")
+fam_list = out["FAM"]
+a=sorted(list(fam_list.keys()))
+print(a)
