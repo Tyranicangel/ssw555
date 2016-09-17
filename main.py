@@ -11,8 +11,11 @@ def getData(mdict, mlist):
 
 def setData(mdict, mlist, key, val):
 	if key in getData(mdict, mlist[:-1])[mlist[-1]]:
-		getData(mdict, mlist[:-1])[mlist[-1]][key] = [getData(mdict, mlist[:-1])[mlist[-1]][key]]
-		getData(mdict, mlist[:-1])[mlist[-1]][key].append(val)
+		if type(getData(mdict, mlist[:-1])[mlist[-1]][key]) is list:
+			getData(mdict, mlist[:-1])[mlist[-1]][key].append(val)
+		else:
+			getData(mdict, mlist[:-1])[mlist[-1]][key] = [getData(mdict, mlist[:-1])[mlist[-1]][key]]
+			getData(mdict, mlist[:-1])[mlist[-1]][key].append(val)
 	else:
 		getData(mdict, mlist[:-1])[mlist[-1]][key] = val
 
