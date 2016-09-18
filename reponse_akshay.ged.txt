@@ -1,3 +1,4 @@
+People:
 Id        Name                          Gender    Birthday       Alive     Death          Spouse              Children
 @I1@      AKS SUN                       M         10 JAN 1993    Alive     N/A            @F1@                @F2@
 @I2@      JEN SUN                       F         02 FEB 1994    Alive     N/A            @F1@                N/A
