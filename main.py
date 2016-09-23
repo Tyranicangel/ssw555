@@ -139,35 +139,33 @@ for key in sorted(maindict['INDI'], key=lambda x: int(x.replace('@', "").replace
 
 # List of families with their details to response
 response += '\n\n\nFamilies:\n'
-response += "Id".ljust(10) + 'Marriage'.ljust(15) + 'Divorce'.ljust(15) + 'Husband'.ljust(40) + 'Wife'.ljust(
-	40) + 'Children\n'
+response += "Id".ljust(10) + 'Marriage'.ljust(15) + 'Divorce'.ljust(15) + 'Husband'.ljust(60) + 'Wife'.ljust(
+    60) + 'Children\n'
 for key in sorted(maindict['FAM'], key=lambda x: int(x.replace('@', "").replace('F', ""))):
-	response += key.ljust(10)
-	if 'MARR' in maindict['FAM'][key]:
-		response += maindict['FAM'][key]['MARR']['DATE']['VAL'].ljust(15)
-	else:
-		response += 'N/A'.ljust(15)
-	if 'DIV' in maindict['FAM'][key]:
-		response += maindict['FAM'][key]['DIV']['DATE']['VAL'].ljust(15)
-	else:
-		response += 'N/A'.ljust(15)
-	if 'HUSB' in maindict['FAM'][key]:
-		res=maindict['FAM'][key]['HUSB']['VAL']+", "+maindict['INDI'][maindict['FAM'][key]['HUSB']['VAL']]['NAME']['VAL']
-		response += res.ljust(40)
-	else:
-		response += 'N/A'.ljust(40)
-	if 'WIFE' in maindict['FAM'][key]:
-		res=maindict['FAM'][key]['WIFE']['VAL']+", "+maindict['INDI'][maindict['FAM'][key]['WIFE']['VAL']]['NAME']['VAL']
-		response += res.ljust(40)
-	else:
-		response += 'N/A'.ljust(40)
-	if 'CHIL' in maindict['FAM'][key]:
-		if type(maindict['FAM'][key]['CHIL']) is list:
-			response += ','.join([d['VAL'] for d in maindict['FAM'][key]['CHIL']]) + '\n'
-		else:
-			response += maindict['FAM'][key]['CHIL']['VAL'] + '\n'
-	else:
-		response += 'N/A' + '\n'
+    response += key.ljust(10)
+    if 'MARR' in maindict['FAM'][key]:
+        response += maindict['FAM'][key]['MARR']['DATE']['VAL'].ljust(15)
+    else:
+        response += 'N/A'.ljust(15)
+    if 'DIV' in maindict['FAM'][key]:
+        response += maindict['FAM'][key]['DIV']['DATE']['VAL'].ljust(15)
+    else:
+        response += 'N/A'.ljust(15)
+    if 'HUSB' in maindict['FAM'][key]:
+        response += (maindict['FAM'][key]['HUSB']['VAL'] + ", " + maindict['INDI'][maindict['FAM'][key]['HUSB']['VAL']]['NAME']['VAL']).ljust(60)
+    else:
+        response += 'N/A'.ljust(40)
+    if 'WIFE' in maindict['FAM'][key]:
+        response += (maindict['FAM'][key]['WIFE']['VAL'] + ", " + maindict['INDI'][maindict['FAM'][key]['WIFE']['VAL']]['NAME']['VAL']).ljust(60)
+    else:
+        response += 'N/A'.ljust(40)
+    if 'CHIL' in maindict['FAM'][key]:
+        if type(maindict['FAM'][key]['CHIL']) is list:
+            response += ','.join([d['VAL'] for d in maindict['FAM'][key]['CHIL']]) + '\n'
+        else:
+            response += maindict['FAM'][key]['CHIL']['VAL'] + '\n'
+    else:
+        response += 'N/A' + '\n'
 
 # Executing all scripts and combining maindictputs
 response += prad.run(maindict) + akshay.run(maindict) + prabhjot.run(maindict) + pranay.run(maindict)
