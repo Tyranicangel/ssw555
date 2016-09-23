@@ -36,15 +36,15 @@ Id        Name                          Gender    Birthday       Alive     Death
 
 
 Families:
-Id        Marriage       Divorce        Husband                       Wife                          Children
-@F1@      N/A            N/A            @I2@, Baji                    @I3@, Sridevi                 @I1@,@I10@
-@F2@      N/A            N/A            @I6@, PurnaChandra            @I7@, RamaDevi Test           @I2@,@I9@
-@F3@      N/A            N/A            @I4@, RamaRao                 @I5@, Lakshmi                 @I3@,@I8@,@I22@,@I26@
-@F4@      N/A            N/A            @I11@, Sivaram                 @I8@, Nirmala                 @I12@,@I13@
-@F5@      N/A            N/A            @I9@, Surendra                @I16@, Vijaya                  @I17@,@I18@
-@F6@      N/A            N/A            @I14@, Sarat                   @I13@, Manogna                 @I15@
-@F7@      N/A            N/A            @I17@, Srinivas                @I29@, Chaitanya               @I30@,@I31@
-@F8@      N/A            N/A            @I20@, Suresh                  @I18@, Chinni                  @I32@
-@F9@      N/A            N/A            @I19@, Rammohan                @I18@, Chinni                  @I21@
-@F10@     N/A            N/A            @I22@, Rambabu                 @I23@, Sridevi                 @I24@,@I25@
-@F11@     N/A            N/A            @I26@, Srinivas                @I27@, Renu                    @I28@
+Id        Marriage       Divorce        Husband                                 Wife                                    Children
+@F1@      N/A            N/A            @I2@, Baji                              @I3@, Sridevi                           @I1@,@I10@
+@F2@      N/A            N/A            @I6@, PurnaChandra                      @I7@, RamaDevi Test                     @I2@,@I9@
+@F3@      N/A            N/A            @I4@, RamaRao                           @I5@, Lakshmi                           @I3@,@I8@,@I22@,@I26@
+@F4@      N/A            N/A            @I11@, Sivaram                          @I8@, Nirmala                           @I12@,@I13@
+@F5@      N/A            N/A            @I9@, Surendra                          @I16@, Vijaya                           @I17@,@I18@
+@F6@      N/A            N/A            @I14@, Sarat                            @I13@, Manogna                          @I15@
+@F7@      N/A            N/A            @I17@, Srinivas                         @I29@, Chaitanya                        @I30@,@I31@
+@F8@      N/A            N/A            @I20@, Suresh                           @I18@, Chinni                           @I32@
+@F9@      N/A            N/A            @I19@, Rammohan                         @I18@, Chinni                           @I21@
+@F10@     N/A            N/A            @I22@, Rambabu                          @I23@, Sridevi                          @I24@,@I25@
+@F11@     N/A            N/A            @I26@, Srinivas                         @I27@, Renu                             @I28@

@@ -2,6 +2,12 @@
 Project for Course SSW-555 (Agile Methods for Software Development)
 This application is a command line program in Python which analyzes a GEDCOM file, reports and stores its findings
 
+## Authors
+Chandra Pradyumna Adusumilli
+Akshay Sunderwani
+Prabhjot Singh
+Pranay Bure
+
 ## Installation
 User who wish to utilize this application must have Python 2.xx installed on their machines.Please visit www.python.org for futher instructions to install Python.This is a command line program so reach the directory via terminal and run the file using python.
 
