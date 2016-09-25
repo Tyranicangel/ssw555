@@ -1,6 +1,7 @@
 import datetime
 import functools
 import collections
+import calendar
 
 import akshay
 import prad
@@ -8,14 +9,22 @@ import prabhjot
 import pranay
 
 
-# To convert string into Datetime
+#To convert string into Datetime
+# def getDateObj(dateVal):
+
+# To convert array of Date to string
 def getDate(dateVal):
-	if len(dateVal[0]) == 1:
-		dateVal[0] = '0' + dateVal[0]
+	if len(dateVal)==3:
+		if len(dateVal[0]) == 1:
+			dateVal[0] = '0' + dateVal[0]
+	elif len(dateVal)==2:
+		dateVal.insert(0,'01')
+	else:
+		dateVal.insert(0,'JAN')
+		dateVal.insert(0,'01')
+	return datetime.datetime.strptime(' '.join(dateVal), '%d %b %Y')
 	return " ".join(dateVal)
 
-
-# return datetime.datetime.strptime(' '.join(dateVal), '%d %b %Y')
 
 # To get data from dictonary
 def getData(mdict, mlist):
@@ -33,6 +42,7 @@ def setData(mdict, mlist, key, val):
 	else:
 		getData(mdict, mlist[:-1])[mlist[-1]][key] = val
 
+months={v: k for k,v in enumerate(calendar.month_abbr)}
 
 # user_name=raw_input("Hello!What is your name:")
 # fname=raw_input("Well "+user_name+' please enter file name:')
@@ -93,7 +103,7 @@ except IOError:
 
 # List of people with their details to response
 response += "People:\n"
-response += "Id".ljust(10) + 'Name'.ljust(30) + 'Gender'.ljust(10) + 'Birthday'.ljust(15) + 'Alive'.ljust(
+response += "Id".ljust(10) + 'Name'.ljust(30) + 'Gender'.ljust(10) + 'Age'.ljust(10) + 'Birthday'.ljust(15) + 'Alive'.ljust(
 	10) + 'Death'.ljust(15) + 'Spouse'.ljust(20) + 'Children\n'
 
 for key in sorted(maindict['INDI'], key=lambda x: int(x.replace('@', "").replace('I', ""))):
@@ -104,16 +114,26 @@ for key in sorted(maindict['INDI'], key=lambda x: int(x.replace('@', "").replace
 		response += 'N/A'.ljust(10)
 	if 'BIRT' in maindict['INDI'][key]:
 		if 'DATE' in maindict['INDI'][key]['BIRT']:
-			response += maindict['INDI'][key]['BIRT']['DATE']['VAL'].ljust(15)
+			if 'DEAT' in maindict['INDI'][key]:
+				if maindict['INDI'][key]['DEAT']['VAL'] == 'Y':
+					response += 'N/A'.ljust(10)
+				else:
+					response+=str(((datetime.datetime.today()-maindict['INDI'][key]['BIRT']['DATE']['VAL']).days)/365).ljust(10)
+					response += 'N/A'.ljust(10)
+			else:
+				response+=str(((datetime.datetime.today()-maindict['INDI'][key]['BIRT']['DATE']['VAL']).days)/365).ljust(10)
+			response += maindict['INDI'][key]['BIRT']['DATE']['VAL'].strftime('%m/%d/%Y').ljust(15)
 		else:
+			response += 'N/A'.ljust(10)
 			response += 'N/A'.ljust(15)
 	else:
+		response += 'N/A'.ljust(10)
 		response += 'N/A'.ljust(15)
 	if 'DEAT' in maindict['INDI'][key]:
 		if maindict['INDI'][key]['DEAT']['VAL'] == 'Y':
 			response += 'Dead'.ljust(10)
 			if 'DATE' in maindict['INDI'][key]['DEAT']:
-				response += maindict['INDI'][key]['DEAT']['DATE']['VAL'].ljust(15)
+				response += maindict['INDI'][key]['DEAT']['DATE']['VAL'].strftime('%m/%d/%Y').ljust(15)
 			else:
 				response += 'N/A'.ljust(15)
 		else:
@@ -144,11 +164,11 @@ response += "Id".ljust(10) + 'Marriage'.ljust(15) + 'Divorce'.ljust(15) + 'Husba
 for key in sorted(maindict['FAM'], key=lambda x: int(x.replace('@', "").replace('F', ""))):
     response += key.ljust(10)
     if 'MARR' in maindict['FAM'][key]:
-        response += maindict['FAM'][key]['MARR']['DATE']['VAL'].ljust(15)
+        response += maindict['FAM'][key]['MARR']['DATE']['VAL'].strftime('%m/%d/%Y').ljust(15)
     else:
         response += 'N/A'.ljust(15)
     if 'DIV' in maindict['FAM'][key]:
-        response += maindict['FAM'][key]['DIV']['DATE']['VAL'].ljust(15)
+        response += maindict['FAM'][key]['DIV']['DATE']['VAL'].strftime('%m/%d/%Y').ljust(15)
     else:
         response += 'N/A'.ljust(15)
     if 'HUSB' in maindict['FAM'][key]:
