@@ -1,5 +1,16 @@
 0 HEAD
-1 NOTE https://github.com/Tyranicangel/ssw555
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE Family 2
+1 DATE 28 SEP 2016
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Akshay Sunderwani
+1 SUBN
+1 CHAR UTF-8
 0 @I1@ INDI
 1 NAME AKS /SUN/
 2 GIVN AKS
@@ -219,9 +230,8 @@
 1 WIFE @I10@
 1 CHIL @I11@
 1 CHIL @I12@
-1 EVEN
-2 TYPE Relationship
-2 DATE 18 OCT 1967
+1 MARR
+2 DATE 3 MAR 1965
 1 EVEN
 2 TYPE Ending
 1 _CURRENT N

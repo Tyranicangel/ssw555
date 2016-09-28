@@ -1,12 +1,3 @@
-import main
-
-
-# method to check if response dictionary is valid or not
-def run(out):
-    print ( out )
-    return ""
-
-
 def gethusbandandwifedict(dict):
     husbwifedict = {}
     husblist = []
@@ -32,20 +23,6 @@ def getsiblingsbdate(dict):
     # wifedict = hubwifdict['WIFE']
     hubdict = []
     wifdict = []
-
-    #LOOP ACCORDING TO INDIVIDUAL
-    for key in sorted ( dict[ 'INDI' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
-        if 'FAMS' in dict['INDI'][key]:
-            if type(dict['INDI'][key]['FAMS']) is list:
-                for d in dict['INDI'][key]['FAMS']:
-
-            else:
-                response += maindict['INDI'][key]['FAMS']['VAL'].ljust(20)
-        else:
-            response += 'N/A'.ljust(20)
-
-
-
     # LOOP ACCORDING TO FAMILY
     for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
         if dict['FAM'][key]['HUSB']['VAL'] not in hubdict:
@@ -81,8 +58,8 @@ def getsiblingsbdate(dict):
             print ( 'no childs available.' )
 
 
-filename = "akshay.ged"
-maindict = main.parsergedcomfile ( filename )
-run ( maindict )
-
-getsiblingsbdate ( maindict )
+# method to check if response dictionary is valid or not
+def run(out):
+    print ( out )
+    getsiblingsbdate(out)
+    return ""
