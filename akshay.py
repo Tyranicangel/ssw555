@@ -1,3 +1,40 @@
+from datetime import datetime
+import operator
+
+
+def days_between(dictofdate):
+    length = len(dictofdate)
+    response = ''
+    if length > 15:
+        response += '\nERROR: THERE ARE MORE THAN 15 SIBLINGS IN A FAMILY.'
+    else:
+        response += '\nTHERE ARE ' + repr ( length ) + ' SIBLINGS IN A FAMILY.'
+    newdict = {}
+    for keys in dictofdate:
+        if isinstance(dictofdate[keys], dict):
+            newdict[keys] = dictofdate[keys]['VAL']
+        else:
+            print('value')
+    sorted_list = sorted(newdict.items(), key=operator.itemgetter(1))
+    i = 0
+    while i < len(sorted_list)-1:
+        j = i + 1
+        while j < len(sorted_list):
+            d1 = newdict[sorted_list[i][0]]
+            d2 = newdict[sorted_list[j][0]]
+            date1 = datetime.strptime ( d1.strftime('%m/%d/%Y') , "%m/%d/%Y" )
+            date2 = datetime.strptime ( d2.strftime('%m/%d/%Y') , "%m/%d/%Y" )
+            numberofdays = int(abs((date1 - date2).days))
+            if (numberofdays < 2 and numberofdays >= 0) or numberofdays > 243:
+                response += '\nDATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
+                i += 1
+                break
+            else:
+                response += '\nERROR: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF ' + keys[i] + ' AND ' + keys[j] +'.'
+                j += 1
+    return response
+
+
 def gethusbandandwifedict(dict):
     husbwifedict = {}
     husblist = []
@@ -17,49 +54,49 @@ def gethusbandandwifedict(dict):
 
 
 def getsiblingsbdate(dict):
-    siblingdict = []
-    # hubwifdict = gethusbandandwifedict(dict)
-    # husbdict = hubwifdict['HUSB']
-    # wifedict = hubwifdict['WIFE']
-    hubdict = []
-    wifdict = []
     # LOOP ACCORDING TO FAMILY
+    siblingdict = {}
+    response = ''
     for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
-        if dict['FAM'][key]['HUSB']['VAL'] not in hubdict:
-            hubdict.append(dict['FAM'][key]['HUSB']['VAL'])
-        else:
-            print()
-        if dict['FAM'][key]['WIFE']['VAL'] not in wifdict:
-            wifdict.append(dict['FAM'][key]['WIFE']['VAL'])
-        else:
-            print()
+        if siblingdict.__len__() > 0:
+            if siblingdict.__len__() > 1:
+                response += days_between(siblingdict)
+            else:
+                keys = siblingdict.keys ( )
+                response += '\nWARNING: NO BIRTHDATE AVAILABLE FOR CHILD ' + siblingdict[ keys[0] ]
+        siblingdict = {}
         if 'CHIL' in dict[ 'FAM' ][ key ]:
             if type ( dict[ 'FAM' ][ key ][ 'CHIL' ] ) is list:
                 for d in dict[ 'FAM' ][ key ][ 'CHIL' ]:
                     if 'BIRT' in dict[ 'INDI' ][ d[ 'VAL' ] ]:
                         if 'DATE' in dict[ 'INDI' ][ d[ 'VAL' ] ][ 'BIRT' ]:
-                            print ( 'id : ' , d[ 'VAL' ] , 'birthdate : ' ,
-                                    dict[ 'INDI' ][ d[ 'VAL' ] ][ 'BIRT' ][ 'DATE' ][ 'VAL' ] )
+                            siblingdict.update({d['VAL'] : {'VAL' : dict['INDI'][d['VAL']]['BIRT']['DATE']['VAL']}})
                         else:
-                            print ( 'id : ' , d[ 'VAL' ] , 'birthdate : N/A' )
+                            siblingdict.update({d['VAL'] : 'N/A'})
                     else:
-                        print ( 'id : ' , d[ 'VAL' ] , 'birthdate : N/A' )
+                        siblingdict.update ( {d[ 'VAL' ]: 'N/A'} )
             else:
                 if 'BIRT' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ]:
                     if 'DATE' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ]:
-                        print ( 'id : ' , dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ,
-                                'birthdate : ' ,
-                                dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ][ 'DATE' ][ 'VAL' ] )
+                        response += '\nTHERE IS ONLY 1 SIBLING IN THE FAMILY : ' +\
+                                            dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
+                                            + ' AND ITS BIRTHDATE : ' +\
+                                            dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime('%m/%d/%Y')
                     else:
-                        print ( 'id : ' , dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] , 'birthdate : N/A' )
+                        response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY : ' +\
+                                            dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
+                                            + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
                 else:
-                    print ( 'id : ' , dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] , 'birthdate : N/A' )
+                    response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY : ' + \
+                                        dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] \
+                                        + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
         else:
-            print ( 'no childs available.' )
+            response += '\nNO CHILDREN AVAILABLE IN FAMILY.'
+    return response
 
 
 # method to check if response dictionary is valid or not
 def run(out):
-    print ( out )
-    getsiblingsbdate(out)
+    ressponse = getsiblingsbdate(out)
+    print('response : ', ressponse)
     return ""

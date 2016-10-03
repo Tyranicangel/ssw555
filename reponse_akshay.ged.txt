@@ -1,23 +1,23 @@
 People:
 Id        Name                          Gender    Age       Birthday       Alive     Death          Spouse              Children
-@I1@      AKS SUN                       M         23.73150684931506801/10/1993     Alive     N/A            @F1@                @F2@
-@I2@      JEN SUN                       F         22.6684931506849302/02/1994     Alive     N/A            @F1@                N/A
-@I3@      CHRIS SUN                     M         -1.402739726027397302/22/2018     Alive     N/A            @F3@                @F1@
-@I4@      JENNIFER SUN                  F         -2.18082191780821912/03/2018     Alive     N/A            N/A                 @F1@
-@I5@      ALEX SUN                      M         50.08767123287671609/09/1966     Alive     N/A            @F2@                @F4@
-@I6@      SAM SUN                       F         48.0      10/10/1968     Alive     N/A            @F2@,@F5@           N/A
-@I7@      MADDY SUN                     F         25.15342465753424508/10/1991     Alive     N/A            N/A                 @F2@
-@I8@      SCOTT SUN                     M         75.6904109589041102/07/1941     Alive     N/A            @F4@,@F6@           N/A
-@I9@      JEAN SUN                      F         74.4383561643835605/10/1942     Alive     N/A            @F4@                N/A
-@I10@     EMMA FROST                    F         71.3534246575342506/09/1945     Alive     N/A            @F6@                N/A
-@I11@     ERIC FROST                    M         48.01643835616438610/04/1968     Alive     N/A            @F5@                @F6@
+@I1@      AKS SUN                       M         23.74520547945205401/10/1993     Alive     N/A            @F1@                @F2@
+@I2@      JEN SUN                       F         22.68219178082191702/02/1994     Alive     N/A            @F1@                N/A
+@I3@      CHRIS SUN                     M         -1.38904109589041102/22/2018     Alive     N/A            @F3@                @F1@
+@I4@      JENNIFER SUN                  F         -2.167123287671232712/03/2018     Alive     N/A            N/A                 @F1@
+@I5@      ALEX SUN                      M         50.101369863013709/09/1966     Alive     N/A            @F2@                @F4@
+@I6@      SAM SUN                       F         48.01369863013698610/10/1968     Alive     N/A            @F2@,@F5@           N/A
+@I7@      MADDY SUN                     F         25.16712328767123508/10/1991     Alive     N/A            N/A                 @F2@
+@I8@      SCOTT SUN                     M         75.704109589041102/07/1941     Alive     N/A            @F4@,@F6@           N/A
+@I9@      JEAN SUN                      F         74.4520547945205505/10/1942     Alive     N/A            @F4@                N/A
+@I10@     EMMA FROST                    F         71.3671232876712306/09/1945     Alive     N/A            @F6@                N/A
+@I11@     ERIC FROST                    M         48.0301369863013710/04/1968     Alive     N/A            @F5@                @F6@
 @I12@     DEAN FROST                    M         N/A       10/04/1968     Dead      07/03/2017     @F7@                @F6@
-@I13@     MINNI FROST                   F         45.8328767123287712/10/1970     Alive     N/A            @F7@,@F8@           N/A
-@I14@     MIKE FROST                    M         23.75616438356164301/01/1993     Alive     N/A            @F9@                @F7@
-@I15@     PEGGY FROST                   F         21.75342465753424601/02/1995     Alive     N/A            @F9@                N/A
-@I16@     RAVEN FROST                   F         -1.345205479452054702/01/2018     Alive     N/A            @F3@                @F9@
-@I17@     FRED FROST                    M         -24.6904109589041106/01/2041     Alive     N/A            N/A                 @F3@
-@I18@     MICKEY FROST                  M         40.8109589041095912/17/1975     Alive     N/A            @F8@                N/A
+@I13@     MINNI FROST                   F         45.84657534246575512/10/1970     Alive     N/A            @F7@,@F8@           N/A
+@I14@     MIKE FROST                    M         23.7698630136986301/01/1993     Alive     N/A            @F9@                @F7@
+@I15@     PEGGY FROST                   F         21.76712328767123201/02/1995     Alive     N/A            @F9@                N/A
+@I16@     RAVEN FROST                   F         -1.331506849315068602/01/2018     Alive     N/A            @F3@                @F9@
+@I17@     FRED FROST                    M         -24.67671232876712406/01/2041     Alive     N/A            N/A                 @F3@
+@I18@     MICKEY FROST                  M         40.82465753424657612/17/1975     Alive     N/A            @F8@                N/A
 
 
 
