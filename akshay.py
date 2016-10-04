@@ -24,7 +24,7 @@ def days_between(dictofdate, familyid):
             date1 = datetime.strptime ( d1.strftime('%m/%d/%Y') , "%m/%d/%Y" )
             date2 = datetime.strptime ( d2.strftime('%m/%d/%Y') , "%m/%d/%Y" )
             numberofdays = int(abs((date1 - date2).days))
-            if (numberofdays < 2 and numberofdays >= 0) or numberofdays > 243:
+            if (2 > numberofdays >= 0) or numberofdays > 243:
                 response += '\nINFO: DATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
                 i += 1
                 break
@@ -52,7 +52,7 @@ def gethusbandandwifedict(dict):
     return husbwifedict
 
 
-# method to parse the main dictionary and generate response for
+# method to parse the main dictionary and generate response for user stories
 def getsiblingsbdate(dict):
     # LOOP ACCORDING TO FAMILY
     siblingdict = {}
