@@ -38,7 +38,7 @@ def days_between(dictofdate, familyid):
 def getsiblingsbdate(dict):
     # LOOP ACCORDING TO FAMILY
     siblingdict = {}
-    response = ''
+    response = '\n\n\n\n'
     famid = ''
     for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
         if siblingdict.__len__() > 0:

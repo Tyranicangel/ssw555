@@ -36,6 +36,10 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
+
+
+
+
 INFO: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
 INFO: DATE OF BIRTH OF @I3@ AND @I4@ HAVE NO ERROR.
 INFO: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
