@@ -34,24 +34,6 @@ def days_between(dictofdate, familyid):
     return response
 
 
-# method to get list of unique husband and wife ids from all families
-def gethusbandandwifedict(dict):
-    husbwifedict = {}
-    husblist = []
-    wifelist = []
-    for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
-        if 'HUSB' in dict['FAM'][key]:
-            if dict['FAM'][key]['HUSB']['VAL'] not in husblist:
-                husblist.append(dict['FAM'][key]['HUSB']['VAL'])
-        if 'WIFE' in dict['FAM'][key]:
-            if dict['FAM'][key]['WIFE']['VAL'] not in wifelist:
-                wifelist.append(dict['FAM'][key]['WIFE']['VAL'])
-
-    husbwifedict['HUSB'] = husblist
-    husbwifedict['WIFE'] = wifelist
-    return husbwifedict
-
-
 # method to parse the main dictionary and generate response for user stories
 def getsiblingsbdate(dict):
     # LOOP ACCORDING TO FAMILY
@@ -60,7 +42,7 @@ def getsiblingsbdate(dict):
     famid = ''
     for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
         if siblingdict.__len__() > 0:
-            response += days_between ( siblingdict , famid)
+            response += days_between (siblingdict , famid)
         siblingdict = {}
         if 'CHIL' in dict[ 'FAM' ][ key ]:
             if type ( dict[ 'FAM' ][ key ][ 'CHIL' ] ) is list:
@@ -96,5 +78,4 @@ def getsiblingsbdate(dict):
 # method to check if response dictionary is valid or not
 def run(out):
     ressponse = getsiblingsbdate(out)
-    # print('response : ', ressponse)
     return ressponse
