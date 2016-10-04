@@ -11,7 +11,7 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I9@      JEAN SUN                      F         74        05/10/1942     Alive     N/A            @F4@                N/A
 @I10@     EMMA FROST                    F         71        06/09/1945     Alive     N/A            @F6@                N/A
 @I11@     ERIC FROST                    M         48        10/04/1968     Alive     N/A            @F5@                @F6@
-@I12@     DEAN FROST                    M         N/A       10/04/1968     Dead      07/03/2017     @F7@                @F6@
+@I12@     ERIC FROST                    M         N/A       10/04/1968     Dead      07/03/1960     @F7@                @F6@
 @I13@     MINNI FROST                   F         45        12/10/1970     Alive     N/A            @F7@,@F8@           N/A
 @I14@     MIKE FROST                    M         23        01/01/1993     Alive     N/A            @F9@                @F7@
 @I15@     PEGGY FROST                   F         21        01/02/1995     Alive     N/A            @F9@                N/A
@@ -29,16 +29,13 @@ Id        Marriage       Divorce        Husband                                 
 @F4@      01/01/1965     N/A            @I8@, SCOTT SUN                                             @I9@, JEAN SUN                                              @I5@
 @F5@      N/A            N/A            @I11@, ERIC FROST                                           @I6@, SAM SUN                                               N/A
 @F6@      03/03/1965     N/A            @I8@, SCOTT SUN                                             @I10@, EMMA FROST                                           @I11@,@I12@
-@F7@      03/10/1992     N/A            @I12@, DEAN FROST                                           @I13@, MINNI FROST                                          @I14@
+@F7@      03/10/1992     N/A            @I12@, ERIC FROST                                           @I13@, MINNI FROST                                          @I14@
 @F8@      08/10/2017     N/A            @I18@, MICKEY FROST                                         @I13@, MINNI FROST                                          N/A
 @F9@      06/17/2018     N/A            @I14@, MIKE FROST                                           @I15@, PEGGY FROST                                          @I16@
 
 
 
-
-
-
-
+Error: There are 2 children in family @F6@ with the same name and birthday,@I11@,@I12@
 
 INFO: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
 INFO: DATE OF BIRTH OF @I3@ AND @I4@ HAVE NO ERROR.
@@ -51,7 +48,15 @@ INFO: THERE ARE 2 SIBLINGS IN @F6@ FAMILY.
 INFO: DATE OF BIRTH OF @I11@ AND @I12@ HAVE NO ERROR.
 INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F7@ : @I14@ AND ITS BIRTHDATE : 01/01/1993
 INFO: NO CHILDREN AVAILABLE IN FAMILY @F8@.
-INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I16@ AND ITS BIRTHDATE : 02/01/2018Error: Death date of @I12@ greater than today
+INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I16@ AND ITS BIRTHDATE : 02/01/2018
+Error: birth of a person seems to occur after death in entries:
+@I12@     ERIC FROST                    10/04/1968     07/03/1960     
+
+
+Error: birth of a child seems to occur later than 9 months after death of father in entries:
+Child:    @I14@     MIKE FROST                    01/01/1993     N/A            
+Father:   @I12@     ERIC FROST                    10/04/1968     07/03/1960     
+
 Error: Birth date of @I4@ greater than today
 Error: Birth date of @I3@ greater than today
 Error: Birth date of @I16@ greater than today
