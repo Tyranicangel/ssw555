@@ -18,9 +18,9 @@ def birthBeforeDeath(data):
                 errorEntriesList.append ( ( id , entry ) )
     if errorEntriesList != [ ]:
         errorEntriesList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
-        outputErrors = '\nError: birth of a person seems to occur after death in entries:\n'
+        outputErrors = '\n';
         for id, entry in errorEntriesList:
-             outputErrors += id.ljust ( 10 ) + briefEntry ( entry )  + '\n'
+             outputErrors += 'Error: US03: birth of a person '+id+' seems to occur after death'
         outputErrors += '\n'
     else:
         outputErrors = ''
@@ -40,8 +40,7 @@ def outputChildBirthErrors(data, errorList, parentCaption, errorCaption):
         errorList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
         outputErrors += errorCaption
         for childId, parentId in errorList:
-            outputErrors += 'Child:    ' + childId.ljust ( 10 ) + briefEntry ( data[ 'INDI' ][ childId ] )  + '\n'
-            outputErrors += parentCaption + parentId.ljust ( 10 ) + briefEntry ( data[ 'INDI' ][ parentId ] )  + '\n\n'
+        	outputErrors +='Error: US09: Birth of a child'+childId+'seems to occur after death of mother or before nine months of death of father '+parentId+'\n'
     return outputErrors
 
 # To check that child is born before death of mother
@@ -68,8 +67,8 @@ def childBirth(data):
                     if dadDeathDate is not None and dadDeathDate + datetime.timedelta ( days = 275 ) < childBirthDate:
                         errorDadsList.append ( ( childId, dadId ) )
     outputErrors = ''
-    outputErrors += outputChildBirthErrors ( data, errorMomsList, 'Mother:   ', '\nError: birth of a child seems to occur after death of mother in entries:\n' )
-    outputErrors += outputChildBirthErrors ( data, errorDadsList, 'Father:   ', '\nError: birth of a child seems to occur later than 9 months after death of father in entries:\n' )
+    outputErrors += outputChildBirthErrors ( data, errorMomsList, 'Mother:   ', '' )
+    outputErrors += outputChildBirthErrors ( data, errorDadsList, 'Father:   ', '' )
     return outputErrors
 
 def run(out):

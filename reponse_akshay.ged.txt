@@ -35,33 +35,26 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
-Error: There are 2 children in family @F6@ with the same name and birthday,@I11@,@I12@
-
-INFO: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
-INFO: DATE OF BIRTH OF @I3@ AND @I4@ HAVE NO ERROR.
-INFO: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
-INFO: DATE OF BIRTH OF @I7@ AND @I1@ HAVE NO ERROR.
-INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F3@ : @I17@ AND ITS BIRTHDATE : 06/01/2041
-INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F4@ : @I5@ AND ITS BIRTHDATE : 09/09/1966
-INFO: NO CHILDREN AVAILABLE IN FAMILY @F5@.
-INFO: THERE ARE 2 SIBLINGS IN @F6@ FAMILY.
-INFO: DATE OF BIRTH OF @I11@ AND @I12@ HAVE NO ERROR.
-INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F7@ : @I14@ AND ITS BIRTHDATE : 01/01/1993
-INFO: NO CHILDREN AVAILABLE IN FAMILY @F8@.
-INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I16@ AND ITS BIRTHDATE : 02/01/2018
-Error: birth of a person seems to occur after death in entries:
-@I12@     ERIC FROST                    10/04/1968     07/03/1960     
-
-
-Error: birth of a child seems to occur later than 9 months after death of father in entries:
-Child:    @I14@     MIKE FROST                    01/01/1993     N/A            
-Father:   @I12@     ERIC FROST                    10/04/1968     07/03/1960     
-
-Error: Birth date of @I4@ greater than today
-Error: Birth date of @I3@ greater than today
-Error: Birth date of @I16@ greater than today
-Error: Birth date of @I17@ greater than today
-Error: Marriage date of @F9@ greater than today
-Error: Marriage date of @F1@ greater than today
-Warning: @I1@ Gender is not correct
-Error: Marriage date of @F8@ greater than today
+Error: US25: There are 2 children in family @F6@ with the same name and birthday,@I11@,@I12@
+INFO: US15: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
+INFO: US13: DATE OF BIRTH OF @I3@ AND @I4@ HAVE NO ERROR.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
+INFO: US13: DATE OF BIRTH OF @I7@ AND @I1@ HAVE NO ERROR.
+INFO: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F3@ : @I17@ AND ITS BIRTHDATE : 06/01/2041
+INFO: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F4@ : @I5@ AND ITS BIRTHDATE : 09/09/1966
+INFO: US15: NO CHILDREN AVAILABLE IN FAMILY @F5@.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F6@ FAMILY.
+INFO: US13: DATE OF BIRTH OF @I11@ AND @I12@ HAVE NO ERROR.
+INFO: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F7@ : @I14@ AND ITS BIRTHDATE : 01/01/1993
+INFO: US15: NO CHILDREN AVAILABLE IN FAMILY @F8@.
+INFO: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I16@ AND ITS BIRTHDATE : 02/01/2018
+Error: US03: birth of a person @I12@ seems to occur after death
+Error: US09: Birth of a child@I14@seems to occur after death of mother or before nine months of death of father @I12@
+Error: US01: Birth date of @I4@ greater than today
+Error: US01: Birth date of @I3@ greater than today
+Error: US01: Birth date of @I16@ greater than today
+Error: US01: Birth date of @I17@ greater than today
+Error: US01: Marriage date of @F9@ greater than today
+Error: US01: Marriage date of @F1@ greater than today
+Warning: US21: @I1@ Gender is not correct
+Error: US01: Marriage date of @F8@ greater than today

@@ -7,9 +7,9 @@ def days_between(dictofdate, familyid):
     length = len(dictofdate)
     response = ''
     if length > 15:
-        response += '\nERROR: THERE ARE MORE THAN 15 SIBLINGS IN ' + familyid + ' FAMILY.'
+        response += '\nERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN ' + familyid + ' FAMILY.'
     else:
-        response += '\nINFO: THERE ARE ' + repr ( length ) + ' SIBLINGS IN ' + familyid + ' FAMILY.'
+        response += '\nINFO: US15: THERE ARE ' + repr ( length ) + ' SIBLINGS IN ' + familyid + ' FAMILY.'
     newdict = {}
     for keys in dictofdate:
         if isinstance(dictofdate[keys], dict):
@@ -25,11 +25,11 @@ def days_between(dictofdate, familyid):
             date2 = datetime.strptime ( d2.strftime('%m/%d/%Y') , "%m/%d/%Y" )
             numberofdays = int(abs((date1 - date2).days))
             if (2 > numberofdays >= 0) or numberofdays > 243:
-                response += '\nINFO: DATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
+                response += '\nINFO: US13: DATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
                 i += 1
                 break
             else:
-                response += '\nERROR: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF ' + keys[i] + ' AND ' + keys[j] +'.'
+                response += '\nERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF ' + keys[i] + ' AND ' + keys[j] +'.'
                 j += 1
     return response
 
@@ -58,20 +58,20 @@ def getsiblingsbdate(dict):
             else:
                 if 'BIRT' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ]:
                     if 'DATE' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ]:
-                        response += '\nINFO: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
+                        response += '\nINFO: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
                                             dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
                                             + ' AND ITS BIRTHDATE : ' +\
                                             dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime('%m/%d/%Y')
                     else:
-                        response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
+                        response += '\nWARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
                                             dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
                                             + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
                 else:
-                    response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' + \
+                    response += '\nWARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' + \
                                         dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] \
                                         + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
         else:
-            response += '\nINFO: NO CHILDREN AVAILABLE IN FAMILY ' + key + '.'
+            response += '\nINFO: US15: NO CHILDREN AVAILABLE IN FAMILY ' + key + '.'
     return response
 
 
