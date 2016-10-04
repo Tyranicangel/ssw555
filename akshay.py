@@ -2,19 +2,18 @@ from datetime import datetime
 import operator
 
 
-def days_between(dictofdate):
+# method to handle the dictionary of siblings to fetch the difference between their birthdates
+def days_between(dictofdate, familyid):
     length = len(dictofdate)
     response = ''
     if length > 15:
-        response += '\nERROR: THERE ARE MORE THAN 15 SIBLINGS IN A FAMILY.'
+        response += '\nERROR: THERE ARE MORE THAN 15 SIBLINGS IN ' + familyid + ' FAMILY.'
     else:
-        response += '\nTHERE ARE ' + repr ( length ) + ' SIBLINGS IN A FAMILY.'
+        response += '\nINFO: THERE ARE ' + repr ( length ) + ' SIBLINGS IN ' + familyid + ' FAMILY.'
     newdict = {}
     for keys in dictofdate:
         if isinstance(dictofdate[keys], dict):
             newdict[keys] = dictofdate[keys]['VAL']
-        else:
-            print('value')
     sorted_list = sorted(newdict.items(), key=operator.itemgetter(1))
     i = 0
     while i < len(sorted_list)-1:
@@ -26,7 +25,7 @@ def days_between(dictofdate):
             date2 = datetime.strptime ( d2.strftime('%m/%d/%Y') , "%m/%d/%Y" )
             numberofdays = int(abs((date1 - date2).days))
             if (numberofdays < 2 and numberofdays >= 0) or numberofdays > 243:
-                response += '\nDATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
+                response += '\nINFO: DATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] + ' HAVE NO ERROR.'
                 i += 1
                 break
             else:
@@ -35,6 +34,7 @@ def days_between(dictofdate):
     return response
 
 
+# method to get list of unique husband and wife ids from all families
 def gethusbandandwifedict(dict):
     husbwifedict = {}
     husblist = []
@@ -52,22 +52,20 @@ def gethusbandandwifedict(dict):
     return husbwifedict
 
 
-
+# method to parse the main dictionary and generate response for
 def getsiblingsbdate(dict):
     # LOOP ACCORDING TO FAMILY
     siblingdict = {}
     response = ''
+    famid = ''
     for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
         if siblingdict.__len__() > 0:
-            if siblingdict.__len__() > 1:
-                response += days_between(siblingdict)
-            else:
-                keys = siblingdict.keys ( )
-                response += '\nWARNING: NO BIRTHDATE AVAILABLE FOR CHILD ' + siblingdict[ keys[0] ]
+            response += days_between ( siblingdict , famid)
         siblingdict = {}
         if 'CHIL' in dict[ 'FAM' ][ key ]:
             if type ( dict[ 'FAM' ][ key ][ 'CHIL' ] ) is list:
                 for d in dict[ 'FAM' ][ key ][ 'CHIL' ]:
+                    famid = key
                     if 'BIRT' in dict[ 'INDI' ][ d[ 'VAL' ] ]:
                         if 'DATE' in dict[ 'INDI' ][ d[ 'VAL' ] ][ 'BIRT' ]:
                             siblingdict.update({d['VAL'] : {'VAL' : dict['INDI'][d['VAL']]['BIRT']['DATE']['VAL']}})
@@ -78,25 +76,25 @@ def getsiblingsbdate(dict):
             else:
                 if 'BIRT' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ]:
                     if 'DATE' in dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ]:
-                        response += '\nTHERE IS ONLY 1 SIBLING IN THE FAMILY : ' +\
+                        response += '\nINFO: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
                                             dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
                                             + ' AND ITS BIRTHDATE : ' +\
                                             dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime('%m/%d/%Y')
                     else:
-                        response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY : ' +\
+                        response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' +\
                                             dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]\
                                             + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
                 else:
-                    response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY : ' + \
+                    response += '\nWARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' + \
                                         dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] \
                                         + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
         else:
-            response += '\nNO CHILDREN AVAILABLE IN FAMILY.'
+            response += '\nINFO: NO CHILDREN AVAILABLE IN FAMILY ' + key + '.'
     return response
 
 
 # method to check if response dictionary is valid or not
 def run(out):
     ressponse = getsiblingsbdate(out)
-    print('response : ', ressponse)
-    return ""
+    # print('response : ', ressponse)
+    return ressponse
