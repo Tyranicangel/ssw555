@@ -1,23 +1,23 @@
 People:
 Id        Name                          Gender    Age       Birthday       Alive     Death          Spouse              Children
-@I1@      AKS SUN                       M         23.74520547945205401/10/1993     Alive     N/A            @F1@                @F2@
-@I2@      JEN SUN                       F         22.68219178082191702/02/1994     Alive     N/A            @F1@                N/A
-@I3@      CHRIS SUN                     M         -1.38904109589041102/22/2018     Alive     N/A            @F3@                @F1@
-@I4@      JENNIFER SUN                  F         -2.167123287671232712/03/2018     Alive     N/A            N/A                 @F1@
-@I5@      ALEX SUN                      M         50.101369863013709/09/1966     Alive     N/A            @F2@                @F4@
-@I6@      SAM SUN                       F         48.01369863013698610/10/1968     Alive     N/A            @F2@,@F5@           N/A
-@I7@      MADDY SUN                     F         25.16712328767123508/10/1991     Alive     N/A            N/A                 @F2@
-@I8@      SCOTT SUN                     M         75.704109589041102/07/1941     Alive     N/A            @F4@,@F6@           N/A
-@I9@      JEAN SUN                      F         74.4520547945205505/10/1942     Alive     N/A            @F4@                N/A
-@I10@     EMMA FROST                    F         71.3671232876712306/09/1945     Alive     N/A            @F6@                N/A
-@I11@     ERIC FROST                    M         48.0301369863013710/04/1968     Alive     N/A            @F5@                @F6@
+@I1@      AKS SUN                       Z         23        01/10/1993     Alive     N/A            @F1@                @F2@
+@I2@      JEN SUN                       F         22        02/02/1994     Alive     N/A            @F1@                N/A
+@I3@      CHRIS SUN                     M         -2        02/22/2018     Alive     N/A            @F3@                @F1@
+@I4@      JENNIFER SUN                  F         -3        12/03/2018     Alive     N/A            N/A                 @F1@
+@I5@      ALEX SUN                      M         50        09/09/1966     Alive     N/A            @F2@                @F4@
+@I6@      SAM SUN                       F         48        10/10/1968     Alive     N/A            @F2@,@F5@           N/A
+@I7@      MADDY SUN                     F         25        08/10/1991     Alive     N/A            N/A                 @F2@
+@I8@      SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F4@,@F6@           N/A
+@I9@      JEAN SUN                      F         74        05/10/1942     Alive     N/A            @F4@                N/A
+@I10@     EMMA FROST                    F         71        06/09/1945     Alive     N/A            @F6@                N/A
+@I11@     ERIC FROST                    M         48        10/04/1968     Alive     N/A            @F5@                @F6@
 @I12@     DEAN FROST                    M         N/A       10/04/1968     Dead      07/03/2017     @F7@                @F6@
-@I13@     MINNI FROST                   F         45.84657534246575512/10/1970     Alive     N/A            @F7@,@F8@           N/A
-@I14@     MIKE FROST                    M         23.7698630136986301/01/1993     Alive     N/A            @F9@                @F7@
-@I15@     PEGGY FROST                   F         21.76712328767123201/02/1995     Alive     N/A            @F9@                N/A
-@I16@     RAVEN FROST                   F         -1.331506849315068602/01/2018     Alive     N/A            @F3@                @F9@
-@I17@     FRED FROST                    M         -24.67671232876712406/01/2041     Alive     N/A            N/A                 @F3@
-@I18@     MICKEY FROST                  M         40.82465753424657612/17/1975     Alive     N/A            @F8@                N/A
+@I13@     MINNI FROST                   F         45        12/10/1970     Alive     N/A            @F7@,@F8@           N/A
+@I14@     MIKE FROST                    M         23        01/01/1993     Alive     N/A            @F9@                @F7@
+@I15@     PEGGY FROST                   F         21        01/02/1995     Alive     N/A            @F9@                N/A
+@I16@     RAVEN FROST                   F         -2        02/01/2018     Alive     N/A            @F3@                @F9@
+@I17@     FRED FROST                    M         -25       06/01/2041     Alive     N/A            N/A                 @F3@
+@I18@     MICKEY FROST                  M         40        12/17/1975     Alive     N/A            @F8@                N/A
 
 
 
@@ -35,3 +35,24 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
+
+INFO: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
+INFO: DATE OF BIRTH OF @I3@ AND @I4@ HAVE NO ERROR.
+INFO: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
+INFO: DATE OF BIRTH OF @I7@ AND @I1@ HAVE NO ERROR.
+INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F3@ : @I17@ AND ITS BIRTHDATE : 06/01/2041
+INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F4@ : @I5@ AND ITS BIRTHDATE : 09/09/1966
+INFO: NO CHILDREN AVAILABLE IN FAMILY @F5@.
+INFO: THERE ARE 2 SIBLINGS IN @F6@ FAMILY.
+INFO: DATE OF BIRTH OF @I11@ AND @I12@ HAVE NO ERROR.
+INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F7@ : @I14@ AND ITS BIRTHDATE : 01/01/1993
+INFO: NO CHILDREN AVAILABLE IN FAMILY @F8@.
+INFO: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I16@ AND ITS BIRTHDATE : 02/01/2018Error: Death date of @I12@ greater than today
+Error: Birth date of @I4@ greater than today
+Error: Birth date of @I3@ greater than today
+Error: Birth date of @I16@ greater than today
+Error: Birth date of @I17@ greater than today
+Error: Marriage date of @F9@ greater than today
+Error: Marriage date of @F1@ greater than today
+Warning: @I1@ Gender is not correct
+Error: Marriage date of @F8@ greater than today

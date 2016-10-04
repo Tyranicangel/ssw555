@@ -53,9 +53,9 @@ taglist = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM' 
 # Tags necessary for parsing
 readable = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM' , 'MARR' , 'HUSB' , 'WIFE' , 'CHIL' ,
              'DIV' , 'DATE' ]
-fname = "prad.ged"
+# fname = "prad.ged"
 # fname = "prabhjot.ged"
-# fname = "akshay.ged"
+fname = "akshay.ged"
 
 # Holds the complete parsed file
 maindict = {}
