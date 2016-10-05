@@ -120,11 +120,11 @@ for key in sorted ( maindict[ 'INDI' ] , key=lambda x: int ( x.replace ( '@' , "
                     response += 'N/A'.ljust ( 10 )
                 else:
                     response += str ( ((datetime.datetime.today ( ) - maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][
-                        'VAL' ]).days) / 365 ).ljust ( 10 )
+                        'VAL' ]).days) // 365 ).ljust ( 10 )
                     response += 'N/A'.ljust ( 10 )
             else:
                 response += str ( ((datetime.datetime.today ( ) - maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][
-                    'VAL' ]).days) / 365 ).ljust ( 10 )
+                    'VAL' ]).days) // 365 ).ljust ( 10 )
             response += maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
         else:
             response += 'N/A'.ljust ( 10 )
