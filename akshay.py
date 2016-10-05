@@ -26,7 +26,7 @@ def days_between(dictofdate, familyid):
                 i += 1
                 break
             else:
-                response += '\nERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF ' + keys[i] + ' AND ' + keys[j] +'.'
+                response += '\nERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF ' + sorted_list[i][0] + ' AND ' + sorted_list[j][0] +'.'
                 j += 1
     return response
 
