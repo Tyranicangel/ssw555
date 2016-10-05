@@ -18,10 +18,10 @@ def birthBeforeDeath(data):
                 errorEntriesList.append ( ( id , entry ) )
     if errorEntriesList != [ ]:
         errorEntriesList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
-        outputErrors = '\n';
+        outputErrors = '';
         for id, entry in errorEntriesList:
-             outputErrors += 'Error: US03: birth of a person '+id+' seems to occur after death'
-        outputErrors += '\n'
+             outputErrors += '\nError: US03: birth of a person '+id+' seems to occur after death'
+        # outputErrors += '\n'
     else:
         outputErrors = ''
     return outputErrors
@@ -29,7 +29,8 @@ def birthBeforeDeath(data):
 # To get death date if any
 def getDeath(data, personId):
     if 'DEAT' in data[ 'INDI' ][ personId ]:
-        return data[ 'INDI' ][ personId ][ 'DEAT' ][ 'DATE' ][ 'VAL' ]
+    	if 'DATE' in data['INDI'][personId]['DEAT']:
+        	return data[ 'INDI' ][ personId ][ 'DEAT' ][ 'DATE' ][ 'VAL' ]
     else:
         return None
 
@@ -40,7 +41,7 @@ def outputChildBirthErrors(data, errorList, parentCaption, errorCaption):
         errorList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
         outputErrors += errorCaption
         for childId, parentId in errorList:
-        	outputErrors +='Error: US09: Birth of a child'+childId+'seems to occur after death of mother or before nine months of death of father '+parentId+'\n'
+        	outputErrors +='\nError: US09: Birth of a child'+childId+'seems to occur after death of mother or before nine months of death of father '+parentId+'\n'
     return outputErrors
 
 # To check that child is born before death of mother

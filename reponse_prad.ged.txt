@@ -1,25 +1,15 @@
 People:
 Id        Name                          Gender    Age       Birthday       Alive     Death          Spouse              Children
-<<<<<<< HEAD
 @I1@      Pradyumna                     M         25        03/01/1991     Alive     N/A            N/A                 @F1@
 @I2@      Baji                          M         N/A       01/01/1950     Dead      06/15/2012     @F1@                @F2@
 @I3@      Sridevi                       F         56        01/01/1960     Alive     N/A            @F1@                @F3@
-=======
-@I1@      Pradyumna                     M         25.61369863013698703/01/1991     Alive     N/A            N/A                 @F1@
-@I2@      Baji                          M         N/A       01/01/1950     Dead      06/15/2012     @F1@                @F2@
-@I3@      Sridevi                       F         56.79726027397260401/01/1960     Alive     N/A            @F1@                @F3@
->>>>>>> 4c3effe826212b1fcf9b6f1a0e90ceb3a41518ed
 @I4@      RamaRao                       M         N/A       N/A            Dead      N/A            @F3@                N/A
 @I5@      Lakshmi                       F         N/A       N/A            Alive     N/A            @F3@                N/A
 @I6@      PurnaChandra                  M         N/A       N/A            Dead      N/A            @F2@                N/A
 @I7@      RamaDevi Test                 F         N/A       N/A            Dead      N/A            @F2@                N/A
 @I8@      Nirmala                       F         N/A       N/A            Alive     N/A            @F4@                @F3@
 @I9@      Surendra                      M         N/A       N/A            Alive     N/A            @F5@                @F2@
-<<<<<<< HEAD
 @I10@     Krishna                       M         -7        12/18/2022     Alive     N/A            N/A                 @F1@
-=======
-@I10@     Krishna                       M         23.8109589041095912/18/1992     Alive     N/A            N/A                 @F1@
->>>>>>> 4c3effe826212b1fcf9b6f1a0e90ceb3a41518ed
 @I11@     Sivaram                       M         N/A       N/A            Alive     N/A            @F4@                N/A
 @I12@     Hemanth                       M         N/A       N/A            Alive     N/A            N/A                 @F4@
 @I13@     Hemanth                       F         N/A       N/A            Alive     N/A            @F6@                @F4@
@@ -61,100 +51,18 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
-Error: There are 2 children in family @F4@ with the same name and birthday,@I12@,@I13@
-
-
-
-
-
-INFO: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
-INFO: DATE OF BIRTH OF @I1@ AND @I10@ HAVE NO ERROR.
-INFO: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
-INFO: THERE ARE 4 SIBLINGS IN @F3@ FAMILY.
-INFO: THERE ARE 2 SIBLINGS IN @F4@ FAMILY.
-INFO: THERE ARE 2 SIBLINGS IN @F5@ FAMILY.
-WARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY @F6@ : @I15@ AND ITS BIRTHDATE IS NOT AVAILABLE.
-INFO: THERE ARE 2 SIBLINGS IN @F7@ FAMILY.
-WARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY @F8@ : @I32@ AND ITS BIRTHDATE IS NOT AVAILABLE.
-WARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I21@ AND ITS BIRTHDATE IS NOT AVAILABLE.
-INFO: THERE ARE 2 SIBLINGS IN @F10@ FAMILY.
-WARNING: THERE IS ONLY 1 SIBLING IN THE FAMILY @F11@ : @I28@ AND ITS BIRTHDATE IS NOT AVAILABLE.
-
-
-
-
-INFO: BIRTH DATE OF @I1@ IS March 01, 1991
-INFO: PERSON @I1@ IS ALIVE.
-INFO: BIRTH DATE OF @I2@ IS January 01, 1950
-INFO: DEATH DATE OF @I2@ IS June 15, 2012
-INFO: BIRTH DATE OF @I3@ IS January 01, 1960
-INFO: PERSON @I3@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I4@ IS NOT AVAILABLE.
-WARNING: DEATH DATE FOR @I4@ IS NOT AVAILABLE.
-WARNING: BIRTH DATE FOR @I5@ IS NOT AVAILABLE.
-INFO: PERSON @I5@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I6@ IS NOT AVAILABLE.
-WARNING: DEATH DATE FOR @I6@ IS NOT AVAILABLE.
-WARNING: BIRTH DATE FOR @I7@ IS NOT AVAILABLE.
-WARNING: DEATH DATE FOR @I7@ IS NOT AVAILABLE.
-WARNING: BIRTH DATE FOR @I8@ IS NOT AVAILABLE.
-INFO: PERSON @I8@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I9@ IS NOT AVAILABLE.
-INFO: PERSON @I9@ IS ALIVE.
-INFO: BIRTH DATE OF @I10@ IS December 18, 1992
-INFO: PERSON @I10@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I11@ IS NOT AVAILABLE.
-INFO: PERSON @I11@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I12@ IS NOT AVAILABLE.
-INFO: PERSON @I12@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I13@ IS NOT AVAILABLE.
-INFO: PERSON @I13@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I14@ IS NOT AVAILABLE.
-INFO: PERSON @I14@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I15@ IS NOT AVAILABLE.
-INFO: PERSON @I15@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I16@ IS NOT AVAILABLE.
-INFO: PERSON @I16@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I17@ IS NOT AVAILABLE.
-INFO: PERSON @I17@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I18@ IS NOT AVAILABLE.
-INFO: PERSON @I18@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I19@ IS NOT AVAILABLE.
-INFO: PERSON @I19@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I20@ IS NOT AVAILABLE.
-INFO: PERSON @I20@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I21@ IS NOT AVAILABLE.
-INFO: PERSON @I21@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I22@ IS NOT AVAILABLE.
-INFO: PERSON @I22@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I23@ IS NOT AVAILABLE.
-INFO: PERSON @I23@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I24@ IS NOT AVAILABLE.
-INFO: PERSON @I24@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I25@ IS NOT AVAILABLE.
-INFO: PERSON @I25@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I26@ IS NOT AVAILABLE.
-INFO: PERSON @I26@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I27@ IS NOT AVAILABLE.
-INFO: PERSON @I27@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I28@ IS NOT AVAILABLE.
-INFO: PERSON @I28@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I29@ IS NOT AVAILABLE.
-INFO: PERSON @I29@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I30@ IS NOT AVAILABLE.
-INFO: PERSON @I30@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I31@ IS NOT AVAILABLE.
-INFO: PERSON @I31@ IS ALIVE.
-WARNING: BIRTH DATE FOR @I32@ IS NOT AVAILABLE.
-INFO: PERSON @I32@ IS ALIVE.
-WARNING: MARRIAGE DATE OF @F1@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F2@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F3@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F4@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F5@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F6@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F7@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F8@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F9@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F10@ IS NOT AVAILABLE.
-WARNING: MARRIAGE DATE OF @F11@ IS NOT AVAILABLE.
+Error: US25: There are 2 children in family @F4@ with the same name and birthday,@I12@,@I13@
+INFO: US15: THERE ARE 2 SIBLINGS IN @F1@ FAMILY.
+INFO: US13: DATE OF BIRTH OF @I1@ AND @I10@ HAVE NO ERROR.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F2@ FAMILY.
+INFO: US15: THERE ARE 4 SIBLINGS IN @F3@ FAMILY.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F4@ FAMILY.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F5@ FAMILY.
+WARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F6@ : @I15@ AND ITS BIRTHDATE IS NOT AVAILABLE.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F7@ FAMILY.
+WARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F8@ : @I32@ AND ITS BIRTHDATE IS NOT AVAILABLE.
+WARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F9@ : @I21@ AND ITS BIRTHDATE IS NOT AVAILABLE.
+INFO: US15: THERE ARE 2 SIBLINGS IN @F10@ FAMILY.
+WARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY @F11@ : @I28@ AND ITS BIRTHDATE IS NOT AVAILABLE.
+Error: US09: Birth of a child@I10@seems to occur after death of mother or before nine months of death of father @I2@
+Error: US01: Birth date of @I10@ greater than today
