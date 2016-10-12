@@ -31,8 +31,8 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I29@     MATT FROST                    M         -33       09/15/2049     Alive     N/A            N/A                 @F3@
 @I30@     MADDY FROST                   F         -35       11/28/2050     Alive     N/A            N/A                 @F3@
 @I31@     BRUCE FROST                   M         -35       07/09/2051     Alive     N/A            N/A                 @F3@
-@I32@     BARBARA FROST                 F         -36       08/16/2052     Alive     N/A            N/A                 @F3@
-@I33@     DAISY FROST                   F         -36       08/16/2052     Alive     N/A            N/A                 @F3@
+@I32@     DONALD FROST                  F         -36       08/16/2052     Alive     N/A            N/A                 @F3@
+@I33@     DONALD FROST                  F         -36       08/16/2052     Alive     N/A            N/A                 @F3@
 @I34@     DONALD FROST                  M         -36       08/16/2052     Alive     N/A            N/A                 @F3@
 
 
@@ -51,6 +51,7 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
+Error: US25: There are 3 children in family @F3@ with the same name and birthday,@I32@,@I33@,@I34@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I21@,@I22@
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I19@ AND @I21@.
@@ -89,3 +90,33 @@ Error: US01: Marriage date of @F1@ greater than today
 Warning: US21: @I11@ Gender is not correct
 Error: US01: Marriage date of @F8@ greater than today
 Warning: US21: @I13@ Gender is not correct
+Error: US01: Birth date of @I23@ greater than today
+Error: US01: Birth date of @I31@ greater than today
+Error: US01: Birth date of @I11@ greater than today
+Error: US01: Birth date of @I24@ greater than today
+Error: US01: Birth date of @I30@ greater than today
+Error: US01: Birth date of @I12@ greater than today
+Error: US01: Birth date of @I25@ greater than today
+Error: US01: Birth date of @I28@ greater than today
+Error: US01: Birth date of @I21@ greater than today
+Error: US01: Birth date of @I32@ greater than today
+Error: US01: Birth date of @I27@ greater than today
+Error: US01: Birth date of @I17@ greater than today
+Error: US01: Birth date of @I33@ greater than today
+Error: US01: Birth date of @I3@ greater than today
+Error: US01: Birth date of @I34@ greater than today
+Error: US01: Birth date of @I19@ greater than today
+Error: US01: Birth date of @I22@ greater than today
+Error: US01: Birth date of @I4@ greater than today
+Error: US01: Birth date of @I26@ greater than today
+Error: US01: Birth date of @I20@ greater than today
+Error: US01: Birth date of @I16@ greater than today
+Error: US01: Marriage date of @F1@ greater than today
+Warning: US21: @I12@ Gender is not correct
+Warning: US21: @I13@ Gender is not correct
+Error: US01: Marriage date of @F9@ greater than today
+Warning: US21: @I14@ Gender is not correct
+Warning: US21: @I15@ Gender is not correct
+Error: US01: Marriage date of @F8@ greater than today
+Warning: US21: @I13@ Gender is not correct
+Warning: US21: @I11@ Gender is not correct
