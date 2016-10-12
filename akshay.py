@@ -65,7 +65,61 @@ def getsiblingsbdate(dict):
     return response
 
 
+
+# method to check for unique name and birthdate in gedcom file sprint 2, user story 23
+# unique names and birthdate in gedcom file
+
+def checkuniquenameandbirthdate(maindict):
+    response = ''
+    namelist = []
+    birthdatelist = []
+    idlist = []
+    for key in sorted ( maindict[ 'INDI' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
+        namelist.append(maindict['INDI'][key]['NAME']['VAL'])
+        idlist.append(key)
+        if 'BIRT' in maindict[ 'INDI' ][ key ]:
+            if 'DATE' in maindict[ 'INDI' ][ key ][ 'BIRT' ]:
+                birthdatelist.append(maindict['INDI'][key]['BIRT']['DATE']['VAL'])
+            else:
+                birthdatelist.append('N/A')
+        else:
+            birthdatelist.append ( 'N/A' )
+
+    count = 0
+    for names in namelist:
+        indexs = list_duplicates_of(namelist, names)
+        print ( 'name : ' , names , 'index : ', namelist.index(names) )
+        print ( 'same name index : ' , indexs )
+        if len(indexs) > 1:
+            indexs_birthdate = list_duplicates_of(birthdatelist, birthdatelist[count])
+            if len(indexs_birthdate) > 1:
+                print('same birthdate index : ', indexs_birthdate)
+                commonindexes = set(indexs) & set(indexs_birthdate)
+                sorted_common_indexes = sorted(commonindexes)
+                print('common indexes : ', sorted_common_indexes)
+        count += 1
+
+    print()
+
+
+def list_duplicates_of(list,item_to_check):
+    start_from = -1
+    duplicate_locs = []
+    while True:
+        try:
+            location = list.index(item_to_check,start_from+1)
+        except ValueError:
+            break
+        else:
+            duplicate_locs.append(location)
+            start_from = location
+    return duplicate_locs
+
+
+
 # method to check if response dictionary is valid or not
 def run(out):
     ressponse = getsiblingsbdate(out)
+    print(checkuniquenameandbirthdate(out))
+#    ressponse += checkuniquenameandbirthdate(out)
     return ressponse
