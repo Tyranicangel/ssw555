@@ -31,7 +31,7 @@ def getDeath(data, personId):
     if 'DEAT' in data[ 'INDI' ][ personId ]:
     	if 'DATE' in data['INDI'][personId]['DEAT']:
         	return data[ 'INDI' ][ personId ][ 'DEAT' ][ 'DATE' ][ 'VAL' ]
-    else:
+    else
         return None
 
 # To output errors of child birth vs. parent death properly

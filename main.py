@@ -55,7 +55,7 @@ readable = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM'
              'DIV' , 'DATE' ]
 # fname = "prad.ged"
 # fname = "prabhjot.ged"
-fname = "akshazy.ged"
+fname = "akshay.ged"
 
 # Holds the complete parsed file
 maindict = {}
