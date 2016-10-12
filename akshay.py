@@ -88,18 +88,18 @@ def checkuniquenameandbirthdate(maindict):
     count = 0
     for names in namelist:
         indexs = list_duplicates_of(namelist, names)
-        print ( 'name : ' , names , 'index : ', namelist.index(names) )
-        print ( 'same name index : ' , indexs )
+        # print ( 'name : ' , names , 'index : ', namelist.index(names) )
+        # print ( 'same name index : ' , indexs )
         if len(indexs) > 1:
             indexs_birthdate = list_duplicates_of(birthdatelist, birthdatelist[count])
             if len(indexs_birthdate) > 1:
-                print('same birthdate index : ', indexs_birthdate)
+                # print('same birthdate index : ', indexs_birthdate)
                 commonindexes = set(indexs) & set(indexs_birthdate)
                 sorted_common_indexes = sorted(commonindexes)
-                print('common indexes : ', sorted_common_indexes)
+                # print('common indexes : ', sorted_common_indexes)
         count += 1
 
-    print()
+    # print()
 
 
 def list_duplicates_of(list,item_to_check):
@@ -120,6 +120,6 @@ def list_duplicates_of(list,item_to_check):
 # method to check if response dictionary is valid or not
 def run(out):
     ressponse = getsiblingsbdate(out)
-    print(checkuniquenameandbirthdate(out))
+    # print(checkuniquenameandbirthdate(out))
 #    ressponse += checkuniquenameandbirthdate(out)
     return ressponse
