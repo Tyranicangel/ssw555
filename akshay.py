@@ -195,8 +195,7 @@ def getsiblingsbdate(dict):
 def checkuniquenameandbirthdate(maindict):
     response = ''
     namedict = {}
-    for key in sorted ( maindict[ key_individual ] ,
-                        key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
+    for key in sorted ( maindict[ key_individual ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
         if key_individual_birthdate in maindict[ key_individual ][ key ]:
             if key_date in maindict[ key_individual ][ key ][ key_individual_birthdate ]:
                 key_name_date = maindict[ key_individual ][ key ][ key_individual_name ][ key_value ] + \
