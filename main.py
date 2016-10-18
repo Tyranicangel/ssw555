@@ -7,7 +7,7 @@ import common
 import akshay
 import prad
 import prabhjot
-import pranay
+import pranay4
 
 
 # To convert string into Datetime
@@ -54,7 +54,7 @@ taglist = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM' 
 # Tags necessary for parsing
 readable = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM' , 'MARR' , 'HUSB' , 'WIFE' , 'CHIL' ,
              'DIV' , 'DATE' ]
-# fname = "prad.ged"
+#fname = "prad.ged"
 # fname = "prabhjot.ged"
 fname = "akshay.ged"
 
@@ -186,7 +186,7 @@ for key in sorted ( maindict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , ""
         response += 'N/A' + '\n'
 
 # Executing all scripts and combining maindictputs
-response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot.run ( maindict ) + pranay.run ( maindict )
+response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot.run ( maindict ) + pranay4.run ( maindict )
 
 # Response file
 writer = open ( 'reponse_' + fname + '.txt' , 'w' )

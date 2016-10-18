@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Stevens data\1st SEM\SSW-555-A\ssw555\main.py", line 120, in <module>
+    response += maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
+ValueError: year=1842 is before 1900; the datetime strftime() methods require year >= 1900

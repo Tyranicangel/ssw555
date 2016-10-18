@@ -12,7 +12,7 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I10@     SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F6@,@F8@           N/A
 @I11@     JEAN SUN                      F         74        05/10/1942     Alive     N/A            @F6@                N/A
 @I12@     EMMA FROST                    F         71        06/09/1945     Alive     N/A            @F8@                N/A
-@I13@     DEAN FROST                    F         N/A       10/04/2018     Dead      07/03/1920     @F9@                @F8@
+@I13@     DEAN FROST                    F         N/A       10/04/1990     Dead      07/03/2020     @F9@                @F8@
 @I14@     MINNI FROST                   M         45        12/10/1970     Alive     N/A            @F9@,@F10@          N/A
 @I15@     MICKEY FROST                  M         40        12/17/1975     Alive     N/A            @F10@               N/A
 @I16@     MIKE FROST                    F         23        01/01/1993     Alive     N/A            @F4@                @F9@
@@ -71,40 +71,5 @@ ERROR : US19 : IN FAMILY @F11@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F12@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F13@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F14@ FIRST COUSINS ARE MARRIED.
-ERROR: US23: INDIVIDUALS @I21@, @I22@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I32@, @I33@, @I34@ HAVE SAME NAME AND BIRTHDATE.
-Error: US01: Birth date of @I33@ greater than today
-Error: US01: Birth date of @I13@ greater than today
-Error: US01: Birth date of @I30@ greater than today
-Error: US01: Birth date of @I19@ greater than today
-Error: US01: Birth date of @I20@ greater than today
-Error: US01: Birth date of @I5@ greater than today
-Error: US01: Birth date of @I22@ greater than today
-Error: US01: Birth date of @I4@ greater than today
-Error: US01: Birth date of @I8@ greater than today
-Error: US01: Birth date of @I26@ greater than today
-Error: US01: Birth date of @I25@ greater than today
-Error: US01: Birth date of @I29@ greater than today
-Error: US01: Birth date of @I27@ greater than today
-Error: US01: Birth date of @I23@ greater than today
-Error: US01: Birth date of @I18@ greater than today
-Error: US01: Birth date of @I31@ greater than today
-Error: US01: Birth date of @I32@ greater than today
-Error: US01: Birth date of @I24@ greater than today
-Error: US01: Birth date of @I35@ greater than today
-Error: US01: Birth date of @I21@ greater than today
-Error: US01: Birth date of @I28@ greater than today
-Error: US01: Birth date of @I3@ greater than today
-Error: US01: Birth date of @I34@ greater than today
-Error: US01: Marriage date of @F5@ greater than today
-Error: US01: Marriage date of @F14@ greater than today
-Error: US01: Marriage date of @F15@ greater than today
-Warning: US21: @I7@ Gender is not correct
-Error: US01: Marriage date of @F13@ greater than today
-Error: US01: Marriage date of @F1@ greater than today
-Error: US01: Marriage date of @F12@ greater than today
-Warning: US21: @I35@ Gender is not correct
-Error: US01: Marriage date of @F10@ greater than today
-Warning: US21: @I15@ Gender is not correct
-Error: US01: Marriage date of @F4@ greater than today
-Error: US01: Marriage date of @F11@ greater than today
+ERROR: US23: INDIVIDUALS @I21@, @I22@ HAVE SAME NAME AND BIRTHDATE.

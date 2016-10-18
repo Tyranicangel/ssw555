@@ -1,10 +1,13 @@
 import datetime
 
 def run(out):
+	#print out
 	today = datetime.datetime.today()
 	response = ""
 
 	for count in out['INDI']:
+		#Print Individual-ID's present in the family
+		print out['INDI']
 
 		if 'BIRT' in out['INDI'][count]:
 			val = out['INDI'][count]['BIRT']['DATE']['VAL']
