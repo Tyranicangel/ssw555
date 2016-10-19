@@ -7,8 +7,6 @@ def run(out):
 
 	for count in out['INDI']:
 		#Print Individual-ID's present in the family
-		print out['INDI']
-
 		if 'BIRT' in out['INDI'][count]:
 			val = out['INDI'][count]['BIRT']['DATE']['VAL']
 			if val > today:				

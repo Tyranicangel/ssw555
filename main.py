@@ -6,8 +6,10 @@ import calendar
 import common
 import akshay
 import prad
-import prabhjot
+import prabhjot3
 import pranay3
+import pranay4
+import pranay
 
 
 # To convert string into Datetime
@@ -57,6 +59,7 @@ readable = [ 'INDI' , 'NAME' , 'SEX' , 'BIRT' , 'DEAT' , 'FAMC' , 'FAMS' , 'FAM'
 #fname = "prad.ged"
 # fname = "prabhjot.ged"
 fname = "akshay.ged"
+# fname = "prabhjotsprint2.ged"
 
 # Holds the complete parsed file
 maindict = {}
@@ -186,7 +189,7 @@ for key in sorted ( maindict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , ""
         response += 'N/A' + '\n'
 
 # Executing all scripts and combining maindictputs
-response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot.run ( maindict ) + pranay3.run ( maindict ) + pranay4.run ( maindict )
+response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot3.run ( maindict ) + pranay3.run ( maindict ) + pranay4.run ( maindict ) + pranay.run (maindict)
 
 # Response file
 writer = open ( 'reponse_' + fname + '.txt' , 'w' )

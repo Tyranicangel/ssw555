@@ -12,7 +12,7 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I10@     SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F6@,@F8@           N/A
 @I11@     JEAN SUN                      F         74        05/10/1942     Alive     N/A            @F6@                N/A
 @I12@     EMMA FROST                    F         71        06/09/1945     Alive     N/A            @F8@                N/A
-@I13@     DEAN FROST                    F         N/A       10/04/1990     Dead      10/18/1998     @F9@                @F8@
+@I13@     DEAN FROST                    F         N/A       10/04/2018     Dead      07/03/1920     @F9@                @F8@
 @I14@     MINNI FROST                   M         45        12/10/1970     Alive     N/A            @F9@,@F10@          N/A
 @I15@     MICKEY FROST                  M         40        12/17/1975     Alive     N/A            @F10@               N/A
 @I16@     MIKE FROST                    F         23        01/01/1993     Alive     N/A            @F4@                @F9@
@@ -35,13 +35,13 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I33@     DONALD FROST                  F         -36       08/16/2052     Alive     N/A            @F14@               @F3@
 @I34@     DONALD FROST                  M         -36       08/16/2052     Alive     N/A            N/A                 @F3@
 @I35@     SON JEN SUN                   M         -29       05/08/2045     Alive     N/A            @F11@,@F12@,@F13@,@F14@@F15@
-@I36@     HUSB JEN SUN                  M         0         05/11/2016     Alive     N/A            @F15@               N/A
+@I36@     HUSB JEN SUN                  M         0         05/11/2016     Alive     N/A            @F5@                N/A
 
 
 
 Families:
 Id        Marriage       Divorce        Husband                                                     Wife                                                        Children
-@F1@      02/10/2017     N/A            @I1@, AKS SUN                                               @I2@, JEN SUN                                               @I3@,@I5@
+@F1@      02/10/2017     02/10/2016     @I1@, AKS SUN                                               @I2@, JEN SUN                                               @I3@,@I5@
 @F2@      02/25/1989     N/A            @I6@, ALEX SUN                                              @I7@, SAM SUN                                               @I1@,@I9@
 @F3@      N/A            N/A            @I3@, CHRIS SUN                                             @I4@, MIKE FROST                                            @I18@,@I19@,@I20@,@I21@,@I22@,@I23@,@I24@,@I25@,@I26@,@I27@,@I28@,@I29@,@I30@,@I31@,@I32@,@I33@,@I34@
 @F4@      06/17/2018     N/A            @I17@, PEGGY FROST                                          @I16@, MIKE FROST                                           @I4@
@@ -49,27 +49,90 @@ Id        Marriage       Divorce        Husband                                 
 @F6@      01/01/1965     N/A            @I10@, SCOTT SUN                                            @I11@, JEAN SUN                                             @I6@
 @F7@      N/A            N/A            @I7@, SAM SUN                                               @I8@, ERIC FROST                                            N/A
 @F8@      03/03/1965     N/A            @I10@, SCOTT SUN                                            @I12@, EMMA FROST                                           @I8@,@I13@
-@F9@      03/10/1999     N/A            @I14@, MINNI FROST                                          @I13@, DEAN FROST                                           @I16@
+@F9@      03/10/1992     N/A            @I14@, MINNI FROST                                          @I13@, DEAN FROST                                           @I16@
 @F10@     08/10/2017     N/A            @I14@, MINNI FROST                                          @I15@, MICKEY FROST                                         N/A
 @F11@     09/16/2075     N/A            @I35@, SON JEN SUN                                          @I30@, MADDY FROST                                          N/A
 @F12@     09/14/2075     N/A            @I31@, BRUCE FROST                                          @I35@, SON JEN SUN                                          N/A
 @F13@     09/15/2075     N/A            @I35@, SON JEN SUN                                          @I32@, DONALD FROST                                         N/A
 @F14@     09/17/2075     N/A            @I35@, SON JEN SUN                                          @I33@, DONALD FROST                                         N/A
-@F15@     08/28/2042     N/A            @I36@, HUSB JEN SUN                                         @I5@, JENNIFER SUN                                          @I35@
+@F15@     N/A            N/A            N/A                                     @I5@, JENNIFER SUN                                          @I35@
 
 
 
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I21@,@I22@
 Error: US25: There are 3 children in family @F3@ with the same name and birthday,@I32@,@I33@,@I34@
-INFO: US29: Individual DEAN FROST(@I13@) is deceased.
 INFO: US31: Individual MADDY SUN(@I9@) is living single.
+INFO: US29: Individual DEAN FROST(@I13@) is deceased.
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
-ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I19@ AND @I21@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I19@ AND @I22@.
+ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I19@ AND @I21@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I30@ AND @I31@.
 ERROR : US19 : IN FAMILY @F11@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F12@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F13@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F14@ FIRST COUSINS ARE MARRIED.
-ERROR: US23: INDIVIDUALS @I32@, @I33@, @I34@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I21@, @I22@ HAVE SAME NAME AND BIRTHDATE.
+ERROR: US23: INDIVIDUALS @I32@, @I33@, @I34@ HAVE SAME NAME AND BIRTHDATE.
+
+Error: US03: birth of a person @I13@ seems to occur after death
+Error: US09: birth of a child @I16@ seems to occur after death of mother or before nine months of death of father @I13@
+Error: US04: marriage does not occur before divorce of spouses or divorce occurs before marriage in family @F1@
+Error: US16: not all male members of a family @F3@ have the same last name
+Error: US05: Marriage cannot happen after death.
+
+ERROR: US07: - Future birth date of individual-id -@I19@
+ERROR: US07: - Future birth date of individual-id -@I4@
+ERROR: US07: - Future birth date of individual-id -@I25@
+ERROR: US07: - Future birth date of individual-id -@I26@
+ERROR: US07: - Future birth date of individual-id -@I3@
+ERROR: US07: - Future birth date of individual-id -@I30@
+ERROR: US07: - Future birth date of individual-id -@I24@
+ERROR: US07: - Future birth date of individual-id -@I33@
+ERROR: US07: - Future birth date of individual-id -@I22@
+ERROR: US07: - Future birth date of individual-id -@I21@
+ERROR: US07: - Future birth date of individual-id -@I8@
+ERROR: US07: - Future birth date of individual-id -@I34@
+ERROR: US07: - Future birth date of individual-id -@I5@
+ERROR: US07: - Future birth date of individual-id -@I20@
+ERROR: US07: - Future birth date of individual-id -@I27@
+ERROR: US07: - Future birth date of individual-id -@I31@
+ERROR: US07: - Future birth date of individual-id -@I28@
+ERROR: US07: - Future birth date of individual-id -@I35@
+ERROR: US07: - Future birth date of individual-id -@I18@
+ERROR: US07: - Future birth date of individual-id -@I23@
+ERROR: US07: - Future birth date of individual-id -@I29@
+ERROR: US07: - Future birth date of individual-id -@I32@
+ERROR: US07: - Future birth date of individual-id -@I13@Error: US01: Birth date of @I19@ greater than today
+Error: US01: Birth date of @I4@ greater than today
+Error: US01: Birth date of @I25@ greater than today
+Error: US01: Birth date of @I26@ greater than today
+Error: US01: Birth date of @I3@ greater than today
+Error: US01: Birth date of @I30@ greater than today
+Error: US01: Birth date of @I24@ greater than today
+Error: US01: Birth date of @I33@ greater than today
+Error: US01: Birth date of @I22@ greater than today
+Error: US01: Birth date of @I21@ greater than today
+Error: US01: Birth date of @I8@ greater than today
+Error: US01: Birth date of @I34@ greater than today
+Error: US01: Birth date of @I5@ greater than today
+Error: US01: Birth date of @I20@ greater than today
+Error: US01: Birth date of @I27@ greater than today
+Error: US01: Birth date of @I31@ greater than today
+Error: US01: Birth date of @I28@ greater than today
+Error: US01: Birth date of @I35@ greater than today
+Error: US01: Birth date of @I18@ greater than today
+Error: US01: Birth date of @I23@ greater than today
+Error: US01: Birth date of @I29@ greater than today
+Error: US01: Birth date of @I32@ greater than today
+Error: US01: Birth date of @I13@ greater than today
+Error: US01: Marriage date of @F4@ greater than today
+Error: US01: Marriage date of @F5@ greater than today
+Warning: US21: @I7@ Gender is not correct
+Error: US01: Marriage date of @F14@ greater than today
+Error: US01: Marriage date of @F13@ greater than today
+Error: US01: Marriage date of @F12@ greater than today
+Warning: US21: @I35@ Gender is not correct
+Error: US01: Marriage date of @F1@ greater than today
+Error: US01: Marriage date of @F10@ greater than today
+Warning: US21: @I15@ Gender is not correct
+Error: US01: Marriage date of @F11@ greater than today
