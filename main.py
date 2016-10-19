@@ -7,7 +7,7 @@ import common
 import akshay
 import prad
 import prabhjot
-import pranay4
+import pranay3
 
 
 # To convert string into Datetime
@@ -186,7 +186,7 @@ for key in sorted ( maindict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , ""
         response += 'N/A' + '\n'
 
 # Executing all scripts and combining maindictputs
-response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot.run ( maindict ) + pranay4.run ( maindict )
+response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot.run ( maindict ) + pranay3.run ( maindict ) + pranay4.run ( maindict )
 
 # Response file
 writer = open ( 'reponse_' + fname + '.txt' , 'w' )

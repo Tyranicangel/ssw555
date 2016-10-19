@@ -1,4 +1,5 @@
 #User story 05 - Marriage before death
+
 import datetime
 
 def run(out):	
@@ -11,36 +12,31 @@ def run(out):
 		#print count					
 		if 'DEAT' in out['INDI'][count]:			
 			if 'DATE' in out['INDI'][count]['DEAT']:
-				death_val = out['INDI'][count]['DEAT']['DATE']['VAL']
-				fam_id = out['INDI'][count]['FAMS']['VAL']
-				dlist.append(count)
-				deathlist.append(str(death_val))
-				deathdict[fam_id] = [str(death_val)] #Family id with their death dates stored in deathdict dictonary
-				#print 'Death date -> ' + str(death_val) + '\n'
-				#print 'Name of Individual who died -> ' + str(out['INDI'][count]['NAME']['VAL']) +'\n'
-				#print 'Individual id ->' + count +'\n'
-				#print 'Family-id of the individual who died -> ' + str(fam_id) +'\n'
+				death_val = out['INDI'][count]['DEAT']['DATE']['VAL'] #Get death date value
+				fam_id = out['INDI'][count]['FAMS']['VAL'] #Get family-id of the individual
+				#dlist.append(count) #Store INDI-ID
+				#deathlist.append(str(death_val)) #Store death dates in string format
+				deathdict[fam_id] = [str(death_val)] #[Key, Value] => [Family-ID, Deathdate], Family id with their death dates stored in deathdict dictonary			
 	
-	#print dlist
-	#print deathlist
-	print '\nDictionary of family-ids with death dates ->' ,deathdict
-	#print '\n Death dict - ', deathdict.keys()[0]
+	
+	#print '\nDictionary of family-ids with death dates ->' ,deathdict
 
 	fdlist = []	
 	marrdict = {}
 	for count in out['FAM']:
-		if 'HUSB' in out['FAM'][count] and 'WIFE' in out['FAM'][count] and 'MARR' in out['FAM'][count]:			
-			fdlist.append(count)
-			marrdate = out['FAM'][count]['MARR']['DATE']['VAL']
+		if 'HUSB' in out['FAM'][count] and 'WIFE' in out['FAM'][count] and 'MARR' in out['FAM'][count]:
+			fdlist.append(count) #Stores family-ids
+			marrdate = out['FAM'][count]['MARR']['DATE']['VAL'] #Marriage date
 			for k,v in deathdict.iteritems():
-				if k == count:
-					if v > str(marrdate):
-						print 'Success'
-						print 'Marriage date ->',str(marrdate)
+				if k == count: #Key's(Family-id's) in deathdict equals to count(Family-id)					
+					if v < str(marrdate):						
+						# print 'Failure, Marriage date ->',str(marrdate), '\n'
+						# print 'Death date ->', v, '\n'
+						# print 'Family-id ->', k, '\n'
+						response += '\nError: US05: Marriage cannot happen after death.\n'
 					else:
-						print 'Failure'
-						print 'Marriage date ->',str(marrdate)
+						continue						
 		else:
-			print '\nNo one is married in this GEDCOM file data.'
+			continue
 
 	return response

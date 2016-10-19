@@ -12,7 +12,7 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I10@     SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F6@,@F8@           N/A
 @I11@     JEAN SUN                      F         74        05/10/1942     Alive     N/A            @F6@                N/A
 @I12@     EMMA FROST                    F         71        06/09/1945     Alive     N/A            @F8@                N/A
-@I13@     DEAN FROST                    F         N/A       10/04/1990     Dead      07/03/2020     @F9@                @F8@
+@I13@     DEAN FROST                    F         N/A       10/04/1990     Dead      10/18/1998     @F9@                @F8@
 @I14@     MINNI FROST                   M         45        12/10/1970     Alive     N/A            @F9@,@F10@          N/A
 @I15@     MICKEY FROST                  M         40        12/17/1975     Alive     N/A            @F10@               N/A
 @I16@     MIKE FROST                    F         23        01/01/1993     Alive     N/A            @F4@                @F9@
@@ -49,7 +49,7 @@ Id        Marriage       Divorce        Husband                                 
 @F6@      01/01/1965     N/A            @I10@, SCOTT SUN                                            @I11@, JEAN SUN                                             @I6@
 @F7@      N/A            N/A            @I7@, SAM SUN                                               @I8@, ERIC FROST                                            N/A
 @F8@      03/03/1965     N/A            @I10@, SCOTT SUN                                            @I12@, EMMA FROST                                           @I8@,@I13@
-@F9@      03/10/1992     N/A            @I14@, MINNI FROST                                          @I13@, DEAN FROST                                           @I16@
+@F9@      03/10/1999     N/A            @I14@, MINNI FROST                                          @I13@, DEAN FROST                                           @I16@
 @F10@     08/10/2017     N/A            @I14@, MINNI FROST                                          @I15@, MICKEY FROST                                         N/A
 @F11@     09/16/2075     N/A            @I35@, SON JEN SUN                                          @I30@, MADDY FROST                                          N/A
 @F12@     09/14/2075     N/A            @I31@, BRUCE FROST                                          @I35@, SON JEN SUN                                          N/A

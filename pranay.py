@@ -11,8 +11,7 @@ def run(out):
 
 		if 'BIRT' in out['INDI'][count]:
 			val = out['INDI'][count]['BIRT']['DATE']['VAL']
-			if val > today:
-				
+			if val > today:				
 				response += "Error: US01: Birth date of " + count + " greater than today\n"
 				
 		if 'DEAT' in out['INDI'][count]:
