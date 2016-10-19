@@ -80,59 +80,59 @@ Error: US04: marriage does not occur before divorce of spouses or divorce occurs
 Error: US16: not all male members of a family @F3@ have the same last name
 Error: US05: Marriage cannot happen after death.
 
-ERROR: US07: - Future birth date of individual-id -@I19@
-ERROR: US07: - Future birth date of individual-id -@I4@
-ERROR: US07: - Future birth date of individual-id -@I25@
-ERROR: US07: - Future birth date of individual-id -@I26@
-ERROR: US07: - Future birth date of individual-id -@I3@
-ERROR: US07: - Future birth date of individual-id -@I30@
-ERROR: US07: - Future birth date of individual-id -@I24@
-ERROR: US07: - Future birth date of individual-id -@I33@
-ERROR: US07: - Future birth date of individual-id -@I22@
-ERROR: US07: - Future birth date of individual-id -@I21@
-ERROR: US07: - Future birth date of individual-id -@I8@
-ERROR: US07: - Future birth date of individual-id -@I34@
-ERROR: US07: - Future birth date of individual-id -@I5@
-ERROR: US07: - Future birth date of individual-id -@I20@
-ERROR: US07: - Future birth date of individual-id -@I27@
-ERROR: US07: - Future birth date of individual-id -@I31@
 ERROR: US07: - Future birth date of individual-id -@I28@
 ERROR: US07: - Future birth date of individual-id -@I35@
-ERROR: US07: - Future birth date of individual-id -@I18@
-ERROR: US07: - Future birth date of individual-id -@I23@
-ERROR: US07: - Future birth date of individual-id -@I29@
+ERROR: US07: - Future birth date of individual-id -@I22@
+ERROR: US07: - Future birth date of individual-id -@I8@
+ERROR: US07: - Future birth date of individual-id -@I19@
 ERROR: US07: - Future birth date of individual-id -@I32@
-ERROR: US07: - Future birth date of individual-id -@I13@Error: US01: Birth date of @I19@ greater than today
-Error: US01: Birth date of @I4@ greater than today
-Error: US01: Birth date of @I25@ greater than today
-Error: US01: Birth date of @I26@ greater than today
-Error: US01: Birth date of @I3@ greater than today
-Error: US01: Birth date of @I30@ greater than today
-Error: US01: Birth date of @I24@ greater than today
-Error: US01: Birth date of @I33@ greater than today
-Error: US01: Birth date of @I22@ greater than today
-Error: US01: Birth date of @I21@ greater than today
-Error: US01: Birth date of @I8@ greater than today
-Error: US01: Birth date of @I34@ greater than today
-Error: US01: Birth date of @I5@ greater than today
-Error: US01: Birth date of @I20@ greater than today
-Error: US01: Birth date of @I27@ greater than today
-Error: US01: Birth date of @I31@ greater than today
-Error: US01: Birth date of @I28@ greater than today
+ERROR: US07: - Future birth date of individual-id -@I25@
+ERROR: US07: - Future birth date of individual-id -@I34@
+ERROR: US07: - Future birth date of individual-id -@I23@
+ERROR: US07: - Future birth date of individual-id -@I18@
+ERROR: US07: - Future birth date of individual-id -@I3@
+ERROR: US07: - Future birth date of individual-id -@I13@
+ERROR: US07: - Future birth date of individual-id -@I33@
+ERROR: US07: - Future birth date of individual-id -@I20@
+ERROR: US07: - Future birth date of individual-id -@I29@
+ERROR: US07: - Future birth date of individual-id -@I5@
+ERROR: US07: - Future birth date of individual-id -@I27@
+ERROR: US07: - Future birth date of individual-id -@I26@
+ERROR: US07: - Future birth date of individual-id -@I24@
+ERROR: US07: - Future birth date of individual-id -@I31@
+ERROR: US07: - Future birth date of individual-id -@I4@
+ERROR: US07: - Future birth date of individual-id -@I30@
+ERROR: US07: - Future birth date of individual-id -@I21@Error: US01: Birth date of @I28@ greater than today
 Error: US01: Birth date of @I35@ greater than today
-Error: US01: Birth date of @I18@ greater than today
-Error: US01: Birth date of @I23@ greater than today
-Error: US01: Birth date of @I29@ greater than today
+Error: US01: Birth date of @I22@ greater than today
+Error: US01: Birth date of @I8@ greater than today
+Error: US01: Birth date of @I19@ greater than today
 Error: US01: Birth date of @I32@ greater than today
+Error: US01: Birth date of @I25@ greater than today
+Error: US01: Birth date of @I34@ greater than today
+Error: US01: Birth date of @I23@ greater than today
+Error: US01: Birth date of @I18@ greater than today
+Error: US01: Birth date of @I3@ greater than today
 Error: US01: Birth date of @I13@ greater than today
+Error: US01: Birth date of @I33@ greater than today
+Error: US01: Birth date of @I20@ greater than today
+Error: US01: Birth date of @I29@ greater than today
+Error: US01: Birth date of @I5@ greater than today
+Error: US01: Birth date of @I27@ greater than today
+Error: US01: Birth date of @I26@ greater than today
+Error: US01: Birth date of @I24@ greater than today
+Error: US01: Birth date of @I31@ greater than today
+Error: US01: Birth date of @I4@ greater than today
+Error: US01: Birth date of @I30@ greater than today
+Error: US01: Birth date of @I21@ greater than today
 Error: US01: Marriage date of @F4@ greater than today
-Error: US01: Marriage date of @F5@ greater than today
-Warning: US21: @I7@ Gender is not correct
 Error: US01: Marriage date of @F14@ greater than today
-Error: US01: Marriage date of @F13@ greater than today
-Error: US01: Marriage date of @F12@ greater than today
-Warning: US21: @I35@ Gender is not correct
-Error: US01: Marriage date of @F1@ greater than today
 Error: US01: Marriage date of @F10@ greater than today
 Warning: US21: @I15@ Gender is not correct
+Warning: US21: @I7@ Gender is not correct
+Error: US01: Marriage date of @F12@ greater than today
+Warning: US21: @I35@ Gender is not correct
+Error: US01: Marriage date of @F5@ greater than today
+Error: US01: Marriage date of @F13@ greater than today
 Error: US01: Marriage date of @F11@ greater than today
+Error: US01: Marriage date of @F1@ greater than today
