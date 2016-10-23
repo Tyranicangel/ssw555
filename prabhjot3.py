@@ -9,7 +9,7 @@ def birthBeforeDeath(data):
                 errorEntriesList.append ( ( id , entry ) )
     if errorEntriesList != [ ]:
         errorEntriesList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
-        outputErrors = '';
+        outputErrors = ''
         for id, entry in errorEntriesList:
              outputErrors += '\nError: US03: birth of a person ' + id + ' seems to occur after death'
     else:

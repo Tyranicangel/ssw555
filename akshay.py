@@ -1,22 +1,6 @@
 from datetime import datetime
 import operator
 
-key_individual = 'INDI'
-key_individual_name = 'NAME'
-key_individual_sex = 'SEX'
-key_individual_birthdate = 'BIRT'
-key_individual_deathdate = 'DEAT'
-key_individual_child_of_family = 'FAMC'
-key_individual_spouse_of_family = 'FAMS'
-key_family = 'FAM'
-key_family_marriagedate = 'MARR'
-key_family_husbid = 'HUSB'
-key_family_wifeid = 'WIFE'
-key_family_child = 'CHIL'
-key_family_divorce = 'DIV'
-key_date = 'DATE'
-key_value = 'VAL'
-
 
 # method to handle the dictionary of siblings to fetch the difference between their birthdates
 def days_between(dictofdate , familyid):
@@ -26,7 +10,7 @@ def days_between(dictofdate , familyid):
     newdict = {}
     for keys in dictofdate:
         if isinstance ( dictofdate[ keys ] , dict ):
-            newdict[ keys ] = dictofdate[ keys ][ key_value ]
+            newdict[ keys ] = dictofdate[ keys ][ 'VAL' ]
     sorted_list = sorted ( newdict.items ( ) , key=operator.itemgetter ( 1 ) )
     i = 0
     while i < len ( sorted_list ) - 1:
@@ -51,34 +35,34 @@ def getsiblingsbdate(dict):
     siblingdict = {}
     response = ''
     famid = ''
-    for key in sorted ( dict[ key_family ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
+    for key in sorted ( dict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
         if siblingdict.__len__ ( ) > 0:
             response += days_between ( siblingdict , famid )
         siblingdict = {}
-        if key_family_child in dict[ key_family ][ key ]:
-            if type ( dict[ key_family ][ key ][ key_family_child ] ) is list:
-                for d in dict[ key_family ][ key ][ key_family_child ]:
+        if 'CHIL' in dict[ 'FAM' ][ key ]:
+            if type ( dict[ 'FAM' ][ key ][ 'CHIL' ] ) is list:
+                for d in dict[ 'FAM' ][ key ][ 'CHIL' ]:
                     famid = key
-                    if key_individual_birthdate in dict[ key_individual ][ d[ key_value ] ]:
-                        if key_date in dict[ key_individual ][ d[ key_value ] ][ key_individual_birthdate ]:
-                            siblingdict.update ( {d[ key_value ]: {key_value: dict[ key_individual ][ d[ key_value ] ][
-                                key_individual_birthdate ][ key_date ][ key_value ]}} )
+                    if 'BIRT' in dict[ 'INDI' ][ d[ 'VAL' ] ]:
+                        if 'DATE' in dict[ 'INDI' ][ d[ 'VAL' ] ][ 'BIRT' ]:
+                            siblingdict.update ( {d[ 'VAL' ]: {'VAL': dict[ 'INDI' ][ d[ 'VAL' ] ][
+                                'BIRT' ][ 'DATE' ][ 'VAL' ]}} )
                         else:
-                            siblingdict.update ( {d[ key_value ]: 'N/A'} )
+                            siblingdict.update ( {d[ 'VAL' ]: 'N/A'} )
                     else:
-                        siblingdict.update ( {d[ key_value ]: 'N/A'} )
+                        siblingdict.update ( {d[ 'VAL' ]: 'N/A'} )
             else:
-                if key_individual_birthdate in dict[ key_individual ][
-                    dict[ key_family ][ key ][ key_family_child ][ key_value ] ]:
-                    if key_date not in \
-                            dict[ key_individual ][ dict[ key_family ][ key ][ key_family_child ][ key_value ] ][
-                                key_individual_birthdate ]:
+                if 'BIRT' in dict[ 'INDI' ][
+                    dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ]:
+                    if 'DATE' not in \
+                            dict[ 'INDI' ][ dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] ][
+                                'BIRT' ]:
                         response += '\nWARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' + \
-                                    dict[ key_family ][ key ][ key_family_child ][ key_value ] \
+                                    dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] \
                                     + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
                 else:
                     response += '\nWARNING: US15: THERE IS ONLY 1 SIBLING IN THE FAMILY ' + key + ' : ' + \
-                                dict[ key_family ][ key ][ key_family_child ][ key_value ] \
+                                dict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] \
                                 + ' AND ITS BIRTHDATE IS NOT AVAILABLE.'
 
         husbandid = ''
@@ -99,73 +83,73 @@ def getsiblingsbdate(dict):
         value3 = 'False'
         value4 = 'False'
 
-        if key_family_husbid in dict[ key_family ][ key ]:
-            husbandid = dict[ key_family ][ key ][ key_family_husbid ][ key_value ]
+        if 'HUSB' in dict[ 'FAM' ][ key ]:
+            husbandid = dict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ]
 
-        if key_family_wifeid in dict[ key_family ][ key ]:
-            wifeid = dict[ key_family ][ key ][ key_family_wifeid ][ key_value ]
+        if 'WIFE' in dict[ 'FAM' ][ key ]:
+            wifeid = dict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ]
 
         if wifeid != '' and husbandid != '':
-            if key_individual_child_of_family in dict[ key_individual ][ husbandid ]:
-                family_id_husband_is_child_of = dict[ key_individual ][ husbandid ][ key_individual_child_of_family ][
-                    key_value ]
+            if 'FAMC' in dict[ 'INDI' ][ husbandid ]:
+                family_id_husband_is_child_of = dict[ 'INDI' ][ husbandid ][ 'FAMC' ][
+                    'VAL' ]
 
-            if key_individual_child_of_family in dict[ key_individual ][ wifeid ]:
-                family_id_wife_is_child_of = dict[ key_individual ][ wifeid ][ key_individual_child_of_family ][
-                    key_value ]
+            if 'FAMC' in dict[ 'INDI' ][ wifeid ]:
+                family_id_wife_is_child_of = dict[ 'INDI' ][ wifeid ][ 'FAMC' ][
+                    'VAL' ]
 
             if family_id_husband_is_child_of != '' and family_id_wife_is_child_of != '':
 
-                if key_family_husbid in dict[ key_family ][ family_id_husband_is_child_of ]:
+                if 'HUSB' in dict[ 'FAM' ][ family_id_husband_is_child_of ]:
                     husband_id_from_family_id_husband_is_child_of = \
-                        dict[ key_family ][ family_id_husband_is_child_of ][ key_family_husbid ][ key_value ]
+                        dict[ 'FAM' ][ family_id_husband_is_child_of ][ 'HUSB' ][ 'VAL' ]
 
-                if key_family_wifeid in dict[ key_family ][ family_id_husband_is_child_of ]:
+                if 'WIFE' in dict[ 'FAM' ][ family_id_husband_is_child_of ]:
                     wife_id_from_family_id_husband_is_child_of = \
-                        dict[ key_family ][ family_id_husband_is_child_of ][ key_family_wifeid ][ key_value ]
+                        dict[ 'FAM' ][ family_id_husband_is_child_of ][ 'WIFE' ][ 'VAL' ]
 
-                if key_family_husbid in dict[ key_family ][ family_id_wife_is_child_of ]:
-                    husband_id_from_family_id_wife_is_child_of = dict[ key_family ][ family_id_wife_is_child_of ][
-                        key_family_husbid ][ key_value ]
+                if 'HUSB' in dict[ 'FAM' ][ family_id_wife_is_child_of ]:
+                    husband_id_from_family_id_wife_is_child_of = dict[ 'FAM' ][ family_id_wife_is_child_of ][
+                        'HUSB' ][ 'VAL' ]
 
-                if key_family_wifeid in dict[ key_family ][ family_id_wife_is_child_of ]:
-                    wife_id_from_family_id_wife_is_child_of = dict[ key_family ][ family_id_wife_is_child_of ][
-                        key_family_wifeid ][ key_value ]
+                if 'WIFE' in dict[ 'FAM' ][ family_id_wife_is_child_of ]:
+                    wife_id_from_family_id_wife_is_child_of = dict[ 'FAM' ][ family_id_wife_is_child_of ][
+                        'WIFE' ][ 'VAL' ]
 
                 if ((husband_id_from_family_id_husband_is_child_of != '' or wife_id_from_family_id_husband_is_child_of != '') and
                         (husband_id_from_family_id_wife_is_child_of != '' or wife_id_from_family_id_wife_is_child_of != '')):
 
                     if husband_id_from_family_id_husband_is_child_of != '':
-                        if (key_individual_child_of_family in dict[ key_individual ][
+                        if ('FAMC' in dict[ 'INDI' ][
                             husband_id_from_family_id_husband_is_child_of ]):
                             family_id_husband_id_from_family_id_husband_is_child_of = \
-                               dict[ key_individual ][ husband_id_from_family_id_husband_is_child_of ][
-                                    key_individual_child_of_family ][
-                                    key_value ]
+                               dict[ 'INDI' ][ husband_id_from_family_id_husband_is_child_of ][
+                                    'FAMC' ][
+                                    'VAL' ]
 
                     if wife_id_from_family_id_husband_is_child_of != '':
-                        if key_individual_child_of_family in dict[ key_individual ][
+                        if 'FAMC' in dict[ 'INDI' ][
                             wife_id_from_family_id_husband_is_child_of ]:
                             family_id_wife_id_from_family_id_husband_is_child_of = \
-                                dict[ key_individual ][ wife_id_from_family_id_husband_is_child_of ][
-                                    key_individual_child_of_family ][
-                                    key_value ]
+                                dict[ 'INDI' ][ wife_id_from_family_id_husband_is_child_of ][
+                                    'FAMC' ][
+                                    'VAL' ]
 
                     if husband_id_from_family_id_wife_is_child_of != '':
-                        if key_individual_child_of_family in dict[ key_individual ][
+                        if 'FAMC' in dict[ 'INDI' ][
                             husband_id_from_family_id_wife_is_child_of ]:
                             family_id_husband_id_from_family_id_wife_is_child_of = \
-                                dict[ key_individual ][ husband_id_from_family_id_wife_is_child_of ][
-                                    key_individual_child_of_family ][
-                                    key_value ]
+                                dict[ 'INDI' ][ husband_id_from_family_id_wife_is_child_of ][
+                                    'FAMC' ][
+                                    'VAL' ]
 
                     if wife_id_from_family_id_wife_is_child_of != '':
-                        if key_individual_child_of_family in dict[ key_individual ][
+                        if 'FAMC' in dict[ 'INDI' ][
                             wife_id_from_family_id_wife_is_child_of ]:
                             family_id_wife_id_from_family_id_wife_is_child_of = \
-                                dict[ key_individual ][ wife_id_from_family_id_wife_is_child_of ][
-                                    key_individual_child_of_family ][
-                                    key_value ]
+                                dict[ 'INDI' ][ wife_id_from_family_id_wife_is_child_of ][
+                                    'FAMC' ][
+                                    'VAL' ]
 
                     if family_id_husband_id_from_family_id_husband_is_child_of != '' and family_id_husband_id_from_family_id_wife_is_child_of != '':
                         if family_id_husband_id_from_family_id_husband_is_child_of == family_id_husband_id_from_family_id_wife_is_child_of:
@@ -195,22 +179,37 @@ def getsiblingsbdate(dict):
 def checkuniquenameandbirthdate(maindict):
     response = ''
     namedict = {}
-    for key in sorted ( maindict[ key_individual ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
-        if key_individual_birthdate in maindict[ key_individual ][ key ]:
-            if key_date in maindict[ key_individual ][ key ][ key_individual_birthdate ]:
-                key_name_date = maindict[ key_individual ][ key ][ key_individual_name ][ key_value ] + \
-                                maindict[ key_individual ][ key ][ key_individual_birthdate ][ key_date ][
-                                    key_value ].strftime ( '%m/%d/%Y' )
+    for key in sorted ( maindict[ 'INDI' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
+        if 'BIRT' in maindict[ 'INDI' ][ key ]:
+            if 'DATE' in maindict[ 'INDI' ][ key ][ 'BIRT' ]:
+                key_name_date = maindict[ 'INDI' ][ key ][ 'NAME' ][ 'VAL' ] + \
+                                maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][
+                                    'VAL' ].strftime ( '%m/%d/%Y' )
             else:
-                key_name_date = maindict[ key_individual ][ key ][ key_individual_name ][ key_value ]
+                key_name_date = maindict[ 'INDI' ][ key ][ 'NAME' ][ 'VAL' ]
         else:
-            key_name_date = maindict[ key_individual ][ key ][ key_individual_name ][ key_value ]
+            key_name_date = maindict[ 'INDI' ][ key ][ 'NAME' ][ 'VAL' ]
 
         if key_name_date in namedict:
             namedict[ key_name_date ].append ( key )
         else:
             namedict[ key_name_date ] = [ ]
             namedict[ key_name_date ].append ( key )
+        if 'BIRT' in maindict[ 'INDI' ][ key ]:
+            if 'DATE' in maindict[ 'INDI' ][ key ][ 'BIRT' ]:
+                if 'FAMS' in maindict['INDI'][key]:
+                    if isinstance(maindict['INDI'][key]['FAMS'], list):
+                        for items in maindict['INDI'][key]['FAMS']:
+                            if 'MARR' in maindict['FAM'][items['VAL']]:
+                                if 'DATE' in maindict['FAM'][items['VAL']]['MARR']:
+                                    if maindict['INDI'][key]['BIRT']['DATE']['VAL'] > maindict['FAM'][items['VAL']]['MARR']['DATE']['VAL']:
+                                        response += 'ERROR: US02: BIRTH OF INDIVIDUAL ' + key + ' IS AFTER ITS MARRIAGE DATE.\n'
+                    else:
+                        if 'MARR' in maindict[ 'FAM' ][ maindict['INDI'][key]['FAMS']['VAL'] ]:
+                            if 'DATE' in maindict[ 'FAM' ][ maindict['INDI'][key]['FAMS']['VAL'] ][ 'MARR' ]:
+                                if maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][ 'VAL' ] > \
+                                        maindict[ 'FAM' ][ maindict['INDI'][key]['FAMS']['VAL'] ][ 'MARR' ][ 'DATE' ][ 'VAL' ]:
+                                    response += 'ERROR: US02: BIRTH OF INDIVIDUAL ' + key + ' IS AFTER ITS MARRIAGE DATE.\n'
     for key in namedict:
         if len ( namedict[ key ] ) > 1:
             response += 'ERROR: US23: INDIVIDUALS '
