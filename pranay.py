@@ -1,15 +1,15 @@
 import datetime
 
 def run(out):
+	#print out
 	today = datetime.datetime.today()
 	response = ""
 
 	for count in out['INDI']:
-
+		#Print Individual-ID's present in the family
 		if 'BIRT' in out['INDI'][count]:
 			val = out['INDI'][count]['BIRT']['DATE']['VAL']
-			if val > today:
-				
+			if val > today:				
 				response += "Error: US01: Birth date of " + count + " greater than today\n"
 				
 		if 'DEAT' in out['INDI'][count]:
