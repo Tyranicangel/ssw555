@@ -22,6 +22,7 @@ def run(out):
 				for key in checkarr:
 					if len(checkarr[key])>1:
 						response+='\nError: US25: There are '+str(len(checkarr[key]))+' children in family '+fam+' with the same name and birthday,'+','.join(checkarr[key])
+		
 	for indi in out['INDI']:
 		if 'DEAT' in out['INDI'][indi]:
 			response+='\nINFO: US29: Individual '+out['INDI'][indi]['NAME']['VAL']+'('+indi+')'+' is deceased.'
