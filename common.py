@@ -1,7 +1,7 @@
 import datetime
 
 def datediff(date1,date2):
-	return abs(date1-date2)
+	return date1-date2
 
 def getage(indi):
 	if 'DEAT' in indi:
