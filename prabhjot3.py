@@ -9,7 +9,7 @@ def birthBeforeDeath(data):
                 errorEntriesList.append ( ( id , entry ) )
     if errorEntriesList != [ ]:
         errorEntriesList.sort ( key=lambda x: int ( x[ 0 ].replace ( '@' , "" ).replace ( 'I' , "" ) ) )
-        outputErrors = ''
+        outputErrors = '';
         for id, entry in errorEntriesList:
              outputErrors += '\nError: US03: birth of a person ' + id + ' seems to occur after death'
     else:
@@ -19,7 +19,7 @@ def birthBeforeDeath(data):
 # To get death date if any
 def getDeath(data, personId):
     if personId is not None and 'DEAT' in data[ 'INDI' ][ personId ]:
-        if 'DATE' in data['INDI'][personId]['DEAT']:
+        if 'DATE' in data[ 'INDI' ][ personId ][ 'DEAT' ]:
             return data[ 'INDI' ][ personId ][ 'DEAT' ][ 'DATE' ][ 'VAL' ]
     else:
         return None
@@ -94,13 +94,10 @@ def lastName(data):
     for id, entry in data[ 'FAM' ].items():
         if 'HUSB' in entry and 'CHIL' in entry:
             dadLastName = getLastName ( data, entry[ 'HUSB' ][ 'VAL' ] )
-            if len ( entry[ 'CHIL' ] ) == 1:
-                childrenList = [ entry[ 'CHIL' ] ]
-            else:
-                childrenList = entry[ 'CHIL' ]
-            for child in childrenList:
-                childLastName = getLastName ( data, child[ 'VAL' ] )
-                childSex = getSex ( data, child[ 'VAL' ] )
+            childrenList = getMultipleVals( entry[ 'CHIL' ] )
+            for childId in childrenList:
+                childLastName = getLastName ( data, childId )
+                childSex = getSex ( data, childId )
                 if childSex == 'M' and childLastName != dadLastName:
                     errorFamList.append ( id )
                     break
@@ -109,6 +106,85 @@ def lastName(data):
         outputErrors += '\nError: US16: not all male members of a family ' + familyId + ' have the same last name'
     return outputErrors
 
+# To check if person is alive today
+def isAliveToday(data, personId):
+    personEntry = data[ 'INDI' ][ personId ]
+    return 'BIRT' in personEntry and personEntry[ 'BIRT' ][ 'DATE' ][ 'VAL' ] <= datetime.datetime.today() and \
+           ( 'DEAT' not in personEntry or personEntry[ 'DEAT' ][ 'DATE' ][ 'VAL' ] > datetime.datetime.today() )
+
+# To get all living descendants of a person
+def getDescendants(data, personId):
+    descendantSet = set()
+    for familyId, entry in data[ 'FAM' ].items():
+        if ( 'HUSB' in entry and entry[ 'HUSB' ][ 'VAL' ] == personId or \
+           'WIFE' in entry and entry[ 'WIFE' ][ 'VAL' ] == personId ) and \
+           'CHIL' in entry:
+            childrenList = getMultipleVals( entry[ 'CHIL' ] )
+            for childId in childrenList:
+                descendantSet.add( ( childId, isAliveToday ( data, childId ) ) )
+    for descendantId, status in descendantSet:
+        descendantSet = descendantSet | getDescendants(data, descendantId)
+    return descendantSet
+
+def getMultipleVals(entry):
+    if len ( entry ) == 1:
+        return [ entry[ 'VAL' ] ]
+    else:
+        valList = [ ]
+        for item in entry:
+            valList.append ( item[ 'VAL' ] )
+    return valList
+
+# To list all living spouses and descendants of people who died in the last 30 days
+def livingRelatives(data):
+    relDict = { }
+    for personId, personEntry in data[ 'INDI' ].items():
+        if 'DEAT' in personEntry:
+            deatDate = personEntry[ 'DEAT' ][ 'DATE' ][ 'VAL' ]
+            if deatDate <= datetime.datetime.today() and deatDate > datetime.datetime.today() - datetime.timedelta ( days = 30 ):
+                relDict.setdefault (  personId, [ ] )
+                if 'FAMS' in personEntry:
+                    famSList = getMultipleVals( personEntry[ 'FAMS' ] )
+                for familyId in famSList:
+                    familyEntry = data[ 'FAM' ]
+                    if 'WIFE' in familyEntry and isAliveToday ( data, familyEntry[ 'WIFE' ][ 'VAL' ] ):
+                        relDict[ personId ].append ( familyEntry[ 'WIFE' ][ 'VAL' ] )
+                    elif 'HUSB' in familyEntry and isAliveToday ( data, familyEntry[ 'HUSB' ][ 'VAL' ] ):
+                        relDict[ personId ].append ( familyEntry[ 'HUSB' ][ 'VAL' ] )
+                descendantList = list ( getDescendants ( data, personId ) )
+                descendantList.sort( key=lambda x: int ( x[ 0 ].strip ( '@I' ) ) )
+                for descendantId, isAlive in descendantList:
+                    if isAlive:
+                        relDict[ personId ].append ( descendantId )
+    outputInfo = ''
+    for deceasedId, relIdList in sorted ( list ( relDict.items() ), key=lambda x: int ( x[ 0 ].strip ( '@I' ) ) ):
+        if relIdList == [ ]:
+            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had no living descendants'
+        else:
+            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had living descendants ' + ', '.join ( relIdList )
+    return outputInfo 
+
+# To detect all living couples whose marriage anniversary will occur in the next 30 days 
+def upcomingAnniversaries(data):
+    anniList = [ ]
+    thirtyDaysFromToday = datetime.datetime.today() + datetime.timedelta ( days = 30 )
+    for id, entry in data[ 'FAM' ].items():
+        if 'HUSB' in entry and isAliveToday ( data, entry[ 'HUSB' ][ 'VAL' ] ) and \
+           'WIFE' in entry and isAliveToday ( data, entry[ 'WIFE' ][ 'VAL' ] ) and \
+           'MARR' in entry and entry[ 'MARR' ][ 'DATE' ][ 'VAL' ] < datetime.datetime.today() and \
+           ( 'DIV' not in entry or entry[ 'DIV' ][ 'DATE' ][ 'VAL' ] > thirtyDaysFromToday ):
+            anniDate = entry[ 'MARR' ][ 'DATE' ][ 'VAL' ].replace ( year = datetime.datetime.today().year )
+            if anniDate > datetime.datetime.today() and anniDate <= thirtyDaysFromToday:
+                anniList.append ( ( id, entry ) )
+            else:
+                anniDate = entry[ 'MARR' ][ 'DATE' ][ 'VAL' ].replace ( year = datetime.datetime.today().year + 1 )
+                if anniDate > datetime.datetime.today() and anniDate <= thirtyDaysFromToday:
+                    anniList.append ( ( id, entry ) )
+    outputInfo = ''
+    for id, entry in anniList:
+        outputInfo += '\nINFO: US39: A living couple ' + id + ' (' + entry[ 'HUSB' ][ 'VAL' ] + ', ' + entry[ 'WIFE' ][ 'VAL' ] + ') discovered whose marriage anniversary is to occur in the next 30 days'
+    return outputInfo
+
 def run(out):
-    return birthBeforeDeath ( out ) + childBirth ( out ) + marriageDivorce( out ) + lastName ( out )
+    return birthBeforeDeath ( out ) + childBirth ( out ) + marriageDivorce( out ) + lastName ( out ) + livingRelatives ( out ) + upcomingAnniversaries ( out )
 
