@@ -4,11 +4,11 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I2@      JEN SUN                       F         N/A       02/02/1994     Dead      02/01/2000     @F1@                N/A
 @I3@      CHRIS SUN                     M         -2        02/22/2018     Alive     N/A            @F3@                @F1@
 @I4@      MIKE FROST                    F         -2        02/01/2018     Alive     N/A            @F3@                @F4@
-@I5@      JENNIFER SUN                  F         30        12/03/1985     Alive     N/A            @F5@,@F15@          @F1@
+@I5@      JENNIFER SUN                  F         31        01/01/1985     Alive     N/A            @F5@,@F15@          @F1@
 @I6@      HUSB JEN SUN                  M         0         05/11/2016     Alive     N/A            @F5@                N/A
 @I7@      ALEX SUN                      M         50        09/09/1966     Alive     N/A            @F2@                @F6@
 @I8@      SAM SUN                       F         48        10/10/1968     Alive     N/A            @F2@,@F7@           N/A
-@I9@      ERIC FROST                    F         -2        10/04/2018     Alive     N/A            @F7@                @F8@
+@I9@      ERIC FROST                    F         -2        01/01/2018     Alive     N/A            @F7@                @F8@
 @I10@     SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F6@,@F8@           N/A
 @I11@     BRUCE WAYNE                   M         N/A       05/14/1960     Dead      03/07/2009     @F9@                N/A
 @I12@     SCOTT SUN                     M         75        02/07/1941     Alive     N/A            @F6@,@F8@           N/A
@@ -63,98 +63,98 @@ Id        Marriage       Divorce        Husband                                 
 
 
 
+WARNING: US06: DIVORCE DATE is before Marriage date for @I2@ in family @F1@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I23@,@I24@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I36@,@I37@
-WARNING: US06: DIVORCE DATE is before Marriage date for @I2@ in family @F1@
-WARNING: US11: Individual @I5@ is involved in bigamy
-INFO: US29: Individual DEAN FROST(@I15@) is deceased.
 INFO: US29: Individual BRUCE WAYNE(@I11@) is deceased.
 INFO: US29: Individual JEN SUN(@I2@) is deceased.
+INFO: US29: Individual DEAN FROST(@I15@) is deceased.
+INFO: US29: Individual AKS SUNN(@I1@) is deceased.
 WARNING: US11: Individual @I34@ is involved in bigamy
+WARNING: US11: Individual @I35@ is involved in bigamy
+WARNING: US11: Individual @I10@ is involved in bigamy
+WARNING: US11: Individual @I5@ is involved in bigamy
 WARNING: US11: Individual @I16@ is involved in bigamy
 WARNING: US11: Individual @I12@ is involved in bigamy
-WARNING: US11: Individual @I10@ is involved in bigamy
-INFO: US29: Individual AKS SUNN(@I1@) is deceased.
-WARNING: US11: Individual @I35@ is involved in bigamy
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
-ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I24@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I23@.
+ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I24@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I32@ AND @I33@.
 ERROR : US19 : IN FAMILY @F12@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F13@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F15@ FIRST COUSINS ARE MARRIED.
 ERROR: US02: BIRTH OF INDIVIDUAL @I15@ IS AFTER ITS MARRIAGE DATE.
+ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I36@, @I37@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I10@, @I12@ HAVE SAME NAME AND BIRTHDATE.
-ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
 
 Error: US03: birth of a person @I15@ seems to occur after death
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I2@
 Error: US09: birth of a child @I18@ seems to occur after death of mother or before nine months of death of father @I15@
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I1@
 Error: US04: marriage does not occur before divorce of spouses or divorce occurs before marriage in family @F1@
-Error: US16: not all male members of a family @F2@ have the same last name
-Error: US16: not all male members of a family @F3@ have the same last name
 Error: US16: not all male members of a family @F1@ have the same last name
+Error: US16: not all male members of a family @F3@ have the same last name
+Error: US16: not all male members of a family @F2@ have the same last name
 INFO: US37: A person @I1@, who died in the last 30 days, had living descendants @I5@, @I35@
 INFO: US39: A living couple @F8@ (@I10@, @I12@) discovered whose marriage anniversary is to occur in the next 30 days
 Error: US05: Marriage cannot happen after death.
 
 Error: US05: Marriage cannot happen after death.
 
-ERROR: US07: - Future birth date of individual-id -@I29@
-ERROR: US07: - Future birth date of individual-id -@I30@
-ERROR: US07: - Future birth date of individual-id -@I36@
-ERROR: US07: - Future birth date of individual-id -@I21@
-ERROR: US07: - Future birth date of individual-id -@I23@
-ERROR: US07: - Future birth date of individual-id -@I27@
-ERROR: US07: - Future birth date of individual-id -@I32@
-ERROR: US07: - Future birth date of individual-id -@I15@
-ERROR: US07: - Future birth date of individual-id -@I25@
-ERROR: US07: - Future birth date of individual-id -@I31@
-ERROR: US07: - Future birth date of individual-id -@I34@
 ERROR: US07: - Future birth date of individual-id -@I4@
+ERROR: US07: - Future birth date of individual-id -@I29@
+ERROR: US07: - Future birth date of individual-id -@I15@
+ERROR: US07: - Future birth date of individual-id -@I21@
+ERROR: US07: - Future birth date of individual-id -@I34@
+ERROR: US07: - Future birth date of individual-id -@I3@
+ERROR: US07: - Future birth date of individual-id -@I23@
 ERROR: US07: - Future birth date of individual-id -@I28@
-ERROR: US07: - Future birth date of individual-id -@I26@
 ERROR: US07: - Future birth date of individual-id -@I33@
-ERROR: US07: - Future birth date of individual-id -@I22@
+ERROR: US07: - Future birth date of individual-id -@I26@
 ERROR: US07: - Future birth date of individual-id -@I9@
+ERROR: US07: - Future birth date of individual-id -@I32@
 ERROR: US07: - Future birth date of individual-id -@I20@
-ERROR: US07: - Future birth date of individual-id -@I24@
 ERROR: US07: - Future birth date of individual-id -@I37@
-ERROR: US07: - Future birth date of individual-id -@I3@Error: US01: Birth date of @I29@ greater than today
-Info: US35: @I39@ is born in last 30 days.
-Error: US01: Birth date of @I30@ greater than today
-Error: US01: Birth date of @I36@ greater than today
-Error: US01: Birth date of @I21@ greater than today
-Error: US01: Birth date of @I23@ greater than today
-Error: US01: Birth date of @I27@ greater than today
-Error: US01: Birth date of @I32@ greater than today
+ERROR: US07: - Future birth date of individual-id -@I25@
+ERROR: US07: - Future birth date of individual-id -@I22@
+ERROR: US07: - Future birth date of individual-id -@I27@
+ERROR: US07: - Future birth date of individual-id -@I24@
+ERROR: US07: - Future birth date of individual-id -@I36@
+ERROR: US07: - Future birth date of individual-id -@I31@
+ERROR: US07: - Future birth date of individual-id -@I30@Error: US01: Birth date of @I4@ greater than today
+Error: US01: Birth date of @I29@ greater than today
 Error: US01: Birth date of @I15@ greater than today
-Error: US01: Birth date of @I25@ greater than today
-Error: US01: Birth date of @I31@ greater than today
+Error: US01: Birth date of @I21@ greater than today
+Info: US35: @I39@ is born in last 30 days.
 Error: US01: Birth date of @I34@ greater than today
-Error: US01: Birth date of @I4@ greater than today
-Error: US01: Birth date of @I28@ greater than today
-Error: US01: Birth date of @I26@ greater than today
-Error: US01: Birth date of @I33@ greater than today
-Error: US01: Birth date of @I22@ greater than today
-Error: US01: Birth date of @I9@ greater than today
-Error: US01: Birth date of @I20@ greater than today
-Error: US01: Birth date of @I24@ greater than today
-Error: US01: Birth date of @I37@ greater than today
 Error: US01: Birth date of @I3@ greater than today
-Error: US01: Marriage date of @F13@ greater than today
-Warning: US21: @I33@ Gender is not correct
+Error: US01: Birth date of @I23@ greater than today
+Error: US01: Birth date of @I28@ greater than today
+Error: US01: Birth date of @I33@ greater than today
+Error: US01: Birth date of @I26@ greater than today
+Error: US01: Birth date of @I9@ greater than today
+Error: US01: Birth date of @I32@ greater than today
+Error: US01: Birth date of @I20@ greater than today
+Error: US01: Birth date of @I37@ greater than today
+Error: US01: Birth date of @I25@ greater than today
+Error: US01: Birth date of @I22@ greater than today
+Error: US01: Birth date of @I27@ greater than today
+Error: US01: Birth date of @I24@ greater than today
+Error: US01: Birth date of @I36@ greater than today
+Error: US01: Birth date of @I31@ greater than today
+Error: US01: Birth date of @I30@ greater than today
 Warning: US21: @I10@ Gender is not correct
-Warning: US21: @I9@ Gender is not correct
+Warning: US21: @I12@ Gender is not correct
 Error: US01: Marriage date of @F1@ greater than today
 Error: US01: Marriage date of @F11@ greater than today
 Warning: US21: @I17@ Gender is not correct
-Error: US01: Marriage date of @F5@ greater than today
+Error: US01: Marriage date of @F13@ greater than today
+Warning: US21: @I33@ Gender is not correct
 Error: US01: Marriage date of @F14@ greater than today
 Warning: US21: @I35@ Gender is not correct
 Error: US01: Marriage date of @F12@ greater than today
 Error: US01: Marriage date of @F4@ greater than today
-Warning: US21: @I12@ Gender is not correct
+Warning: US21: @I9@ Gender is not correct
 Error: US01: Marriage date of @F15@ greater than today
+Error: US01: Marriage date of @F5@ greater than today
