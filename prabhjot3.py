@@ -159,9 +159,9 @@ def livingRelatives(data):
     outputInfo = ''
     for deceasedId, relIdList in sorted ( list ( relDict.items() ), key=lambda x: int ( x[ 0 ].strip ( '@I' ) ) ):
         if relIdList == [ ]:
-            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had no living descendants'
+            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had no living descendants/spouses'
         else:
-            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had living descendants ' + ', '.join ( relIdList )
+            outputInfo += '\nINFO: US37: A person ' + deceasedId + ', who died in the last 30 days, had living descendants/spouses ' + ', '.join ( relIdList )
     return outputInfo 
 
 # To detect all living couples whose marriage anniversary will occur in the next 30 days 
