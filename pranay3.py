@@ -14,9 +14,10 @@ def run(out):
         if 'DEAT' in out[ 'INDI' ][ count ]:
             if 'DATE' in out[ 'INDI' ][ count ][ 'DEAT' ]:
                 death_val = out[ 'INDI' ][ count ][ 'DEAT' ][ 'DATE' ][ 'VAL' ]  # Get death date value
-                if type ( out[ 'INDI' ][ count ][ 'FAMS' ] ) is list:
-                    for fid in out[ 'INDI' ][ count ][ 'FAMS' ]['VAL']:
-                        fam_id = fid # Get family-id of the individual
+                if type ( out[ 'INDI' ][ count ][ 'FAMS' ] ) is list:                    
+                    for fid in range(len(out[ 'INDI' ][ count ][ 'FAMS' ])):
+                        fidval = out[ 'INDI' ][ count ][ 'FAMS' ][fid]['VAL']                        
+                        fam_id = fidval # Get family-id of the individual
                         deathdict[ fam_id ] =  str ( death_val )
                 else:
                     fam_id = out[ 'INDI' ][ count ][ 'FAMS' ][ 'VAL' ]  # Get family-id of the individual
