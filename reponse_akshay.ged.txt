@@ -27,12 +27,12 @@ Id        Name                          Gender    Age       Birthday       Alive
 @I25@     WILLIAM FROST                 M         -28       11/09/2043     Alive     N/A            N/A                 @F3@
 @I26@     XAVIER FROST                  M         -28       08/28/2044     Alive     N/A            N/A                 @F3@
 @I27@     KATLYN FROST                  F         -29       08/21/2045     Alive     N/A            N/A                 @F3@
-@I28@     MICHEAL FROST                 M         -30       07/31/2046     Alive     N/A            N/A                 @F3@
-@I29@     MAXX FROST                    M         -31       08/21/2047     Alive     N/A            N/A                 @F3@
+@I28@     MICHEAL FROST                 M         -32       08/10/2048     Alive     N/A            N/A                 @F3@
+@I29@     MAXX FROST                    M         -32       08/10/2048     Alive     N/A            N/A                 @F3@
 @I30@     MINTY FROST                   F         -32       08/10/2048     Alive     N/A            N/A                 @F3@
-@I31@     MATT FROST                    M         -33       09/15/2049     Alive     N/A            N/A                 @F3@
-@I32@     MADDY FROST                   F         -35       11/28/2050     Alive     N/A            @F12@               @F3@
-@I33@     BRUCE FROST                   M         -35       07/09/2051     Alive     N/A            @F13@               @F3@
+@I31@     MATT FROST                    M         -32       08/10/2048     Alive     N/A            N/A                 @F3@
+@I32@     MADDY FROST                   F         -32       08/10/2048     Alive     N/A            @F12@               @F3@
+@I33@     BRUCE FROST                   M         -32       08/10/2048     Alive     N/A            @F13@               @F3@
 @I34@     SON JEN SUN                   M         -29       05/08/2045     Alive     N/A            @F12@,@F13@,@F14@,@F15@@F16@
 @I35@     SON JEN SUN                   M         1         05/08/2015     Alive     N/A            @F14@               N/A
 @I36@     DONALD FROST                  F         -36       08/16/2052     Alive     N/A            @F15@               @F3@
@@ -83,7 +83,6 @@ INFO: US29: Individual AKS SUNN(@I1@) is deceased.
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I24@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I23@.
-ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I32@ AND @I33@.
 ERROR : US19 : IN FAMILY @F12@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F13@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F15@ FIRST COUSINS ARE MARRIED.
@@ -101,8 +100,9 @@ Error: US16: not all male members of a family @F2@ have the same last name
 Error: US16: not all male members of a family @F3@ have the same last name
 Error: US16: not all male members of a family @F1@ have the same last name
 Error: US16: not all male members of a family @F8@ have the same last name
-INFO: US37: A person @I1@, who died in the last 30 days, had living descendants/spouses @I5@
-INFO: US39: A living couple @F9@ (@I12@, @I10@) discovered whose marriage anniversary is to occur in the next 30 days
+INFO: US37: A person @I1@, who died in the last 30 days, had living relatives @I5@
+Error: US12: Mother should be less than 60 years older than her children and father should be less than 80 years older than his children: @I34@, @I5@
+Error: US14: More than five siblings in family @F3@ were born at the same time: @I28@, @I29@, @I30@, @I31@, @I32@, @I33@
 Error: US05: Marriage cannot happen after death.
 
 Error: US05: Marriage cannot happen after death.
