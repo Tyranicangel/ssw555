@@ -10,6 +10,7 @@ import prabhjot3
 import pranay3
 import pranay4
 import pranay
+from prettytable.pretty_table import PrettyTable
 
 
 # To convert string into Datetime
@@ -106,92 +107,99 @@ except IOError:
     print ( 'This file does not exist.' )
 
 # List of people with their details to response
-response += "People:\n"
-response += "Id".ljust ( 10 ) + 'Name'.ljust ( 30 ) + 'Gender'.ljust ( 10 ) + 'Age'.ljust ( 10 ) + 'Birthday'.ljust (
-    15 ) + 'Alive'.ljust (
-    10 ) + 'Death'.ljust ( 15 ) + 'Spouse'.ljust ( 20 ) + 'Children\n'
-
+pretty_response = PrettyTable()
+pretty_response.field_names = ['Id', 'Name', 'Gender', 'Age', 'Birthday', 'Alive', 'Death', 'Spouse', 'Children']
+pretty_response.align = 'l'
+pretty_response.padding_width = 1
 for key in sorted ( maindict[ 'INDI' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'I' , "" ) ) ):
-    response += key.ljust ( 10 ) + maindict[ 'INDI' ][ key ][ 'NAME' ][ 'VAL' ].ljust ( 30 )
+    person_id = key
+    name = maindict[ 'INDI' ][ key ][ 'NAME' ][ 'VAL' ]
     if 'SEX' in maindict[ 'INDI' ][ key ]:
-        response += maindict[ 'INDI' ][ key ][ 'SEX' ][ 'VAL' ].ljust ( 10 )
+        sex = maindict[ 'INDI' ][ key ][ 'SEX' ][ 'VAL' ]
     else:
-        response += 'N/A'.ljust ( 10 )
+        sex = 'N/A'
     if 'BIRT' in maindict[ 'INDI' ][ key ]:
         if 'DATE' in maindict[ 'INDI' ][ key ][ 'BIRT' ]:
-            response+=str(common.getage(maindict['INDI'][key])).ljust(10)
-            response += maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
+            age = str(common.getage(maindict['INDI'][key]))
+            birth_date = maindict[ 'INDI' ][ key ][ 'BIRT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' )
         else:
-            response += 'N/A'.ljust ( 10 )
-            response += 'N/A'.ljust ( 15 )
+            age = 'N/A'
+            birth_date = 'N/A'
     else:
-        response += 'N/A'.ljust ( 10 )
-        response += 'N/A'.ljust ( 15 )
+        age = 'N/A'
+        birth_date = 'N/A'
     if 'DEAT' in maindict[ 'INDI' ][ key ]:
         if maindict[ 'INDI' ][ key ][ 'DEAT' ][ 'VAL' ] == 'Y':
-            response += 'Dead'.ljust ( 10 )
+            alive = 'Dead'
             if 'DATE' in maindict[ 'INDI' ][ key ][ 'DEAT' ]:
-                response += maindict[ 'INDI' ][ key ][ 'DEAT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
+                death_date = maindict[ 'INDI' ][ key ][ 'DEAT' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' )
             else:
-                response += 'N/A'.ljust ( 15 )
+                death_date = 'N/A'
         else:
-            response += 'Alive'.ljust ( 10 )
-            response += 'N/A'.ljust ( 15 )
+            alive = 'Alive'
+            death_date = 'N/A'
     else:
-        response += 'Alive'.ljust ( 10 )
-        response += 'N/A'.ljust ( 15 )
+        alive = 'Alive'
+        death_date = 'N/A'
     if 'FAMS' in maindict[ 'INDI' ][ key ]:
         if type ( maindict[ 'INDI' ][ key ][ 'FAMS' ] ) is list:
-            response += ','.join ( [ d[ 'VAL' ] for d in maindict[ 'INDI' ][ key ][ 'FAMS' ] ] ).ljust ( 20 )
+            spouse = ','.join ( [ d[ 'VAL' ] for d in maindict[ 'INDI' ][ key ][ 'FAMS' ] ] )
         else:
-            response += maindict[ 'INDI' ][ key ][ 'FAMS' ][ 'VAL' ].ljust ( 20 )
+            spouse = maindict[ 'INDI' ][ key ][ 'FAMS' ][ 'VAL' ]
     else:
-        response += 'N/A'.ljust ( 20 )
+        spouse = 'N/A'
     if 'FAMC' in maindict[ 'INDI' ][ key ]:
         if type ( maindict[ 'INDI' ][ key ][ 'FAMC' ] ) is list:
-            response += ','.join ( [ d[ 'VAL' ] for d in maindict[ 'INDI' ][ key ][ 'FAMC' ] ] ) + '\n'
+            child = ','.join ( [ d[ 'VAL' ] for d in maindict[ 'INDI' ][ key ][ 'FAMC' ] ] )
         else:
-            response += maindict[ 'INDI' ][ key ][ 'FAMC' ][ 'VAL' ] + '\n'
+            child = maindict[ 'INDI' ][ key ][ 'FAMC' ][ 'VAL' ]
     else:
-        response += 'N/A' + '\n'
+        child = 'N/A'
+    pretty_response.add_row([person_id, name, sex, age, birth_date, alive, death_date, spouse, child])
 
 # List of families with their details to response
-response += '\n\n\nFamilies:\n'
-response += "Id".ljust ( 10 ) + 'Marriage'.ljust ( 15 ) + 'Divorce'.ljust ( 15 ) + 'Husband'.ljust (
-    60 ) + 'Wife'.ljust (
-    60 ) + 'Children\n'
+pretty_response_fam = PrettyTable()
+pretty_response_fam.field_names = ['Id', 'Marriage', 'Divorce', 'Husband', 'Wife', 'Children']
+pretty_response_fam.align = 'l'
+pretty_response_fam.padding_width = 1
 for key in sorted ( maindict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , "" ).replace ( 'F' , "" ) ) ):
-    response += key.ljust ( 10 )
+    fam_id = key
     if 'MARR' in maindict[ 'FAM' ][ key ]:
-        response += maindict[ 'FAM' ][ key ][ 'MARR' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
+        marriage_date = maindict[ 'FAM' ][ key ][ 'MARR' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' )
     else:
-        response += 'N/A'.ljust ( 15 )
+        marriage_date = 'N/A'
     if 'DIV' in maindict[ 'FAM' ][ key ]:
-        response += maindict[ 'FAM' ][ key ][ 'DIV' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' ).ljust ( 15 )
+        divorce_date = maindict[ 'FAM' ][ key ][ 'DIV' ][ 'DATE' ][ 'VAL' ].strftime ( '%m/%d/%Y' )
     else:
-        response += 'N/A'.ljust ( 15 )
+        divorce_date = 'N/A'
     if 'HUSB' in maindict[ 'FAM' ][ key ]:
-        response += (maindict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ] + ", " +
-                     maindict[ 'INDI' ][ maindict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ] ][ 'NAME' ][ 'VAL' ]).ljust ( 60 )
+        husband = (maindict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ] + ", " +
+                     maindict[ 'INDI' ][ maindict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ] ][ 'NAME' ][ 'VAL' ])
     else:
-        response += 'N/A'.ljust ( 40 )
+        husband = 'N/A'
     if 'WIFE' in maindict[ 'FAM' ][ key ]:
-        response += (maindict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ] + ", " +
-                     maindict[ 'INDI' ][ maindict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ] ][ 'NAME' ][ 'VAL' ]).ljust ( 60 )
+        wife = (maindict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ] + ", " +
+                     maindict[ 'INDI' ][ maindict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ] ][ 'NAME' ][ 'VAL' ])
     else:
-        response += 'N/A'.ljust ( 40 )
+        wife = 'N/A'
     if 'CHIL' in maindict[ 'FAM' ][ key ]:
         if type ( maindict[ 'FAM' ][ key ][ 'CHIL' ] ) is list:
-            response += ','.join ( [ d[ 'VAL' ] for d in maindict[ 'FAM' ][ key ][ 'CHIL' ] ] ) + '\n'
+            children = ','.join ( [ d[ 'VAL' ] for d in maindict[ 'FAM' ][ key ][ 'CHIL' ] ] )
         else:
-            response += maindict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ] + '\n'
+            children = maindict[ 'FAM' ][ key ][ 'CHIL' ][ 'VAL' ]
     else:
-        response += 'N/A' + '\n'
+        children = 'N/A'
+    pretty_response_fam.add_row ( [ fam_id , marriage_date , divorce_date , husband , wife , children] )
 
 # Executing all scripts and combining maindictputs
 response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot3.run ( maindict ) + pranay3.run ( maindict ) + pranay4.run ( maindict ) + pranay.run (maindict)
 
 # Response file
 writer = open ( 'reponse_' + fname + '.txt' , 'w' )
+writer.write('People\n\n')
+writer.write(str(pretty_response))
+writer.write('\n\n\nFamilies\n\n')
+writer.write(str(pretty_response_fam))
+writer.write('\n')
 writer.write ( response )
 writer.close ( )

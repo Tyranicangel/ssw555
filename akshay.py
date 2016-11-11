@@ -29,6 +29,29 @@ def days_between(dictofdate , familyid):
     return response
 
 
+def get_descendants_list(maindict, individual_id):
+    descendants_list = []
+    if 'FAMC' in maindict[ 'INDI' ][ individual_id ]:
+        if type ( maindict[ 'INDI' ][ individual_id ][ 'FAMC' ] ) is list:
+            for d in maindict['INDI'][individual_id]['FAMC']:
+                if 'HUSB' in maindict[ 'FAM' ][ d['VAL'] ]:
+                    descendants_list.append (maindict[ 'FAM' ][ d['VAL'] ][ 'HUSB' ][ 'VAL' ])
+                    descendants_list.extend(get_descendants_list(maindict, maindict[ 'FAM' ][ d['VAL'] ][ 'HUSB' ][ 'VAL' ]))
+                if 'WIFE' in maindict[ 'FAM' ][ d['VAL'] ]:
+                    descendants_list.append (maindict[ 'FAM' ][ d['VAL'] ][ 'WIFE' ][ 'VAL' ])
+                    descendants_list.extend(get_descendants_list(maindict, maindict[ 'FAM' ][ d['VAL'] ][ 'WIFE' ][ 'VAL' ]))
+        else:
+            if 'HUSB' in maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ]:
+                descendants_list.append ( maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ][ 'HUSB' ][ 'VAL' ] )
+                descendants_list.extend (
+                    get_descendants_list ( maindict , maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ][ 'HUSB' ][ 'VAL' ] ) )
+            if 'WIFE' in maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ]:
+                descendants_list.append ( maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ][ 'WIFE' ][ 'VAL' ] )
+                descendants_list.extend (
+                    get_descendants_list ( maindict , maindict[ 'FAM' ][ maindict[ 'INDI' ][ individual_id ][ 'FAMC' ][ 'VAL' ] ][ 'WIFE' ][ 'VAL' ] ) )
+    return descendants_list
+
+
 # method to parse the main dictionary and generate response for user stories
 def getsiblingsbdate(dict):
     # LOOP ACCORDING TO FAMILY
@@ -85,11 +108,21 @@ def getsiblingsbdate(dict):
 
         if 'HUSB' in dict[ 'FAM' ][ key ]:
             husbandid = dict[ 'FAM' ][ key ][ 'HUSB' ][ 'VAL' ]
+            husband_des_list = get_descendants_list(dict, husbandid)
 
         if 'WIFE' in dict[ 'FAM' ][ key ]:
             wifeid = dict[ 'FAM' ][ key ][ 'WIFE' ][ 'VAL' ]
+            wife_des_list = get_descendants_list(dict, wifeid)
 
         if wifeid != '' and husbandid != '':
+            if len(husband_des_list) > 0:
+                if wifeid in husband_des_list:
+                    response += '\nERROR : US17 : IN FAMILY ' + key + ' PARENTS ARE MARRIED WITH THEIR DESCENDANTS.'
+
+            if len(wife_des_list) > 0:
+                if husbandid in wife_des_list:
+                    response += '\nERROR : US17 : IN FAMILY ' + key + ' PARENTS ARE MARRIED WITH THEIR DESCENDANTS.'
+
             if 'FAMC' in dict[ 'INDI' ][ husbandid ]:
                 family_id_husband_is_child_of = dict[ 'INDI' ][ husbandid ][ 'FAMC' ][
                     'VAL' ]
@@ -99,6 +132,8 @@ def getsiblingsbdate(dict):
                     'VAL' ]
 
             if family_id_husband_is_child_of != '' and family_id_wife_is_child_of != '':
+                if family_id_husband_is_child_of == family_id_wife_is_child_of:
+                    response += '\nERROR : US18 : IN FAMILY ' + key + ' SIBLINGS ARE MARRIED.'
 
                 if 'HUSB' in dict[ 'FAM' ][ family_id_husband_is_child_of ]:
                     husband_id_from_family_id_husband_is_child_of = \
