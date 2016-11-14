@@ -1,8 +1,31 @@
 import common
 import datetime
 
+def parents(arr,fam):
+	parents=[]
+	if 'HUSB' in arr['FAM'][fam]:
+		parents.append(arr['FAM'][fam]['HUSB']['VAL'])
+	if 'WIFE' in arr['FAM'][fam]:
+		parents.append(arr['FAM'][fam]['WIFE']['VAL'])
+	return parents
+
+def child_of(arr,indi):
+	if 'FAMC' in arr['INDI'][indi]:
+		return arr['INDI'][indi]['FAMC']['VAL']
+
+def family_of_parent(arr,indi):
+	families=[]
+	child=child_of(arr,indi)
+	if child:
+		for parent in parents(arr,child):
+			if child_of(arr,parent):
+				families.append(child_of(arr,parent))
+	return families
+
 def run(out):
 	response="\n\n"
+	response+='\nError: US22: IDs '+','.join(set(out['DUP']['INDI']))+' have more than one individuals.'
+	response+='\nError: US22: IDs '+','.join(set(out['DUP']['FAM']))+' have more than one families.'
 	for fam in out['FAM']:
 		if 'CHIL' in out['FAM'][fam]:
 			if type(out['FAM'][fam]['CHIL']) is list:
@@ -33,6 +56,21 @@ def run(out):
 					if 'DATE' in out['INDI'][out['FAM'][fam]['WIFE']['VAL']]['DEAT']:
 						if common.datediff(out['INDI'][out['FAM'][fam]['WIFE']['VAL']]['DEAT']['DATE']['VAL'],out['FAM'][fam]['DIV']['DATE']['VAL']).days<0:
 							response+='\nWARNING: US06: DIVORCE DATE is before Marriage date for '+out['FAM'][fam]['WIFE']['VAL']+' in family '+fam
+		if 'HUSB' in out['FAM'][fam]:
+			husbparentfam=family_of_parent(out,out['FAM'][fam]['HUSB']['VAL'])
+			husbchildfam=child_of(out,out['FAM'][fam]['HUSB']['VAL'])
+		if 'WIFE' in out['FAM'][fam]:
+			wifeparentfam=family_of_parent(out,out['FAM'][fam]['WIFE']['VAL'])
+			wifechildfam=child_of(out,out['FAM'][fam]['WIFE']['VAL'])
+
+		if husbchildfam and wifeparentfam:
+			if husbchildfam in wifeparentfam:
+				response+='\nWARNING: US20: In family '+fam+' aunt married her nephew'
+		if wifechildfam and husbparentfam:
+			if wifechildfam in husbparentfam:
+				response+='\nWARNING: US20: In family '+fam+' uncle married his niece'
+				
+
 	for indi in out['INDI']:
 		if 'DEAT' in out['INDI'][indi]:
 			response+='\nINFO: US29: Individual '+out['INDI'][indi]['NAME']['VAL']+'('+indi+')'+' is deceased.'

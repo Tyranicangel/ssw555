@@ -15,8 +15,7 @@ People
 | @I10@ | SCOTT SUN     | M      | 75         | 02/07/1941 | Alive | N/A        | @F8@,@F9@               | N/A      |
 | @I11@ | BRUCE WAYNE   | M      | N/A        | 05/14/1960 | Dead  | 03/07/2009 | @F8@                    | N/A      |
 | @I12@ | SCOTT SUN     | M      | 75         | 02/07/1941 | Alive | N/A        | @F6@,@F9@               | N/A      |
-| @I13@ | JEAN SUN      | F      | 74         | 05/10/1942 | Alive | N/A        | @F6@                    | N/A      |
-| @I14@ | EMMA FROST    | F      | 71         | 06/09/1945 | Alive | N/A        | N/A                     | N/A      |
+| @I13@ | EMMA FROST    | F      | 71         | 06/09/1945 | Alive | N/A        | N/A                     | N/A      |
 | @I15@ | DEAN FROST    | F      | N/A        | 10/04/2018 | Dead  | 07/03/1920 | @F10@                   | N/A      |
 | @I16@ | MINNI FROST   | M      | 45         | 12/10/1970 | Alive | N/A        | @F10@,@F11@             | N/A      |
 | @I17@ | MICKEY FROST  | M      | 40         | 12/17/1975 | Alive | N/A        | @F11@                   | N/A      |
@@ -58,13 +57,13 @@ Families
 | @F3@  | N/A        | N/A        | @I3@, CHRIS SUN     | @I4@, MIKE FROST    | @I20@,@I21@,@I22@,@I23@,@I24@,@I25@,@I26@,@I27@,@I28@,@I29@,@I30@,@I31@,@I32@,@I33@,@I36@,@I37@ |
 | @F4@  | 06/17/2018 | N/A        | @I19@, PEGGY FROST  | @I18@, MIKE FROST   | @I4@,@I39@                                                                                      |
 | @F5@  | 08/28/2042 | N/A        | @I1@, AKS SUNN      | @I5@, JENNIFER SUN  | N/A                                                                                             |
-| @F6@  | 01/01/1965 | N/A        | @I12@, SCOTT SUN    | @I13@, JEAN SUN     | @I7@                                                                                            |
-| @F7@  | N/A        | N/A        | @I9@, ERIC FROST    | @I8@, SAM SUN       | N/A                                                                                             |
+| @F6@  | 01/01/1965 | N/A        | @I12@, SCOTT SUN    | @I13@, EMMA FROST   | @I7@                                                                                            |
+| @F7@  | N/A        | N/A        | @I1@, AKS SUNN      | @I13@, EMMA FROST   | N/A                                                                                             |
 | @F8@  | N/A        | N/A        | @I10@, SCOTT SUN    | @I11@, BRUCE WAYNE  | @I38@                                                                                           |
 | @F9@  | 11/03/1965 | N/A        | @I10@, SCOTT SUN    | @I12@, SCOTT SUN    | N/A                                                                                             |
 | @F10@ | 03/10/1992 | N/A        | @I16@, MINNI FROST  | @I15@, DEAN FROST   | @I18@                                                                                           |
 | @F11@ | 08/10/2017 | N/A        | @I17@, MICKEY FROST | @I16@, MINNI FROST  | N/A                                                                                             |
-| @F12@ | 10/23/1890 | N/A        | @I22@, DOC FROST    | @I23@, DANTE FROST  | N/A                                                                                             |
+| @F12@ | 10/23/1901 | N/A        | @I22@, DOC FROST    | @I23@, DANTE FROST  | N/A                                                                                             |
 | @F13@ | 09/16/2075 | N/A        | @I34@, SON JEN SUN  | @I32@, MADDY FROST  | N/A                                                                                             |
 | @F14@ | 09/14/2075 | N/A        | @I33@, BRUCE FROST  | @I34@, SON JEN SUN  | N/A                                                                                             |
 | @F15@ | 09/15/2075 | N/A        | @I35@, SON JEN SUN  | @I34@, SON JEN SUN  | N/A                                                                                             |
@@ -75,23 +74,28 @@ Families
 
 
 
-WARNING: US06: DIVORCE DATE is before Marriage date for @I2@ in family @F1@
+Error: US22: IDs @I13@ have more than one individuals.
+Error: US22: IDs  have more than one families.
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I23@,@I24@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I36@,@I37@
-WARNING: US11: Individual @I12@ is involved in bigamy
-INFO: US31: Individual EMMA FROST(@I14@) is living single.
-INFO: US29: Individual JEN SUN(@I2@) is deceased.
+WARNING: US06: DIVORCE DATE is before Marriage date for @I2@ in family @F1@
+WARNING: US20: In family @F5@ aunt married her nephew
+WARNING: US20: In family @F17@ aunt married her nephew
+INFO: US31: Individual EMMA FROST(@I13@) is living single.
+INFO: US29: Individual DEAN FROST(@I15@) is deceased.
 INFO: US29: Individual ANNE PAULSON(@I41@) is deceased.
-WARNING: US11: Individual @I16@ is involved in bigamy
-INFO: US29: Individual AKS SUNN(@I1@) is deceased.
 INFO: US29: Individual BRUCE WAYNE(@I11@) is deceased.
 INFO: US29: Individual RICKY SUN(@I40@) is deceased.
+INFO: US29: Individual JEN SUN(@I2@) is deceased.
 WARNING: US11: Individual @I34@ is involved in bigamy
-INFO: US29: Individual DEAN FROST(@I15@) is deceased.
+WARNING: US11: Individual @I16@ is involved in bigamy
+WARNING: US11: Individual @I12@ is involved in bigamy
+INFO: US29: Individual AKS SUNN(@I1@) is deceased.
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I24@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I23@.
 ERROR : US17 : IN FAMILY @F5@ PARENTS ARE MARRIED WITH THEIR DESCENDANTS.
+ERROR : US17 : IN FAMILY @F7@ PARENTS ARE MARRIED WITH THEIR DESCENDANTS.
 ERROR : US18 : IN FAMILY @F12@ SIBLINGS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F12@ FIRST COUSINS ARE MARRIED.
 ERROR : US19 : IN FAMILY @F13@ FIRST COUSINS ARE MARRIED.
@@ -100,18 +104,18 @@ ERROR : US19 : IN FAMILY @F16@ FIRST COUSINS ARE MARRIED.
 ERROR: US02: BIRTH OF INDIVIDUAL @I15@ IS AFTER ITS MARRIAGE DATE.
 ERROR: US02: BIRTH OF INDIVIDUAL @I22@ IS AFTER ITS MARRIAGE DATE.
 ERROR: US02: BIRTH OF INDIVIDUAL @I23@ IS AFTER ITS MARRIAGE DATE.
-ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
-ERROR: US23: INDIVIDUALS @I10@, @I12@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I36@, @I37@ HAVE SAME NAME AND BIRTHDATE.
+ERROR: US23: INDIVIDUALS @I10@, @I12@ HAVE SAME NAME AND BIRTHDATE.
+ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
 
 Error: US03: birth of a person @I15@ seems to occur after death
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I2@
 Error: US09: birth of a child @I18@ seems to occur after death of mother or before nine months of death of father @I15@
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I1@
 Error: US04: marriage does not occur before divorce of spouses or divorce occurs before marriage in family @F1@
-Error: US16: not all male members of a family @F1@ have the same last name
 Error: US16: not all male members of a family @F2@ have the same last name
 Error: US16: not all male members of a family @F3@ have the same last name
+Error: US16: not all male members of a family @F1@ have the same last name
 Error: US16: not all male members of a family @F8@ have the same last name
 INFO: US37: A person @I1@, who died in the last 30 days, had living relatives @I5@
 Error: US12: Mother should be less than 60 years older than her children and father should be less than 80 years older than his children: @I34@, @I5@
@@ -120,97 +124,95 @@ Error: US05: Marriage cannot happen after death.
 
 Error: US05: Marriage cannot happen after death.
 
-ERROR: US07: Future birth date of individual-id @I37@
-ERROR: US07: Future birth date of individual-id @I23@
-ERROR: US07: Future birth date of individual-id @I30@
-ERROR: US07: Future birth date of individual-id @I3@
-ERROR: US07: Future birth date of individual-id @I28@
-ERROR: US07: Future birth date of individual-id @I31@
 ERROR: US07: Future birth date of individual-id @I29@
-ERROR: US07: Future birth date of individual-id @I25@
-ERROR: US07: Future birth date of individual-id @I4@
-ERROR: US07: Future birth date of individual-id @I21@
-ERROR: US07: Future birth date of individual-id @I20@
-ERROR: US07: Future birth date of individual-id @I27@
-ERROR: US07: Future birth date of individual-id @I24@
+ERROR: US07: Future birth date of individual-id @I30@
 ERROR: US07: Future birth date of individual-id @I36@
-ERROR: US07: Future birth date of individual-id @I9@
+ERROR: US07: Future birth date of individual-id @I21@
+ERROR: US07: Future birth date of individual-id @I23@
+ERROR: US07: Future birth date of individual-id @I27@
+ERROR: US07: Future birth date of individual-id @I15@
+ERROR: US07: Future birth date of individual-id @I25@
+ERROR: US07: Future birth date of individual-id @I31@
+ERROR: US07: Future birth date of individual-id @I34@
+ERROR: US07: Future birth date of individual-id @I4@
+ERROR: US07: Future birth date of individual-id @I28@
+ERROR: US07: Future birth date of individual-id @I26@
+ERROR: US07: Future birth date of individual-id @I33@
 ERROR: US07: Future birth date of individual-id @I32@
 ERROR: US07: Future birth date of individual-id @I22@
-ERROR: US07: Future birth date of individual-id @I34@
-ERROR: US07: Future birth date of individual-id @I15@
-ERROR: US07: Future birth date of individual-id @I33@
-ERROR: US07: Future birth date of individual-id @I26@
-ERROR: US01: Birth date of @I37@ greater than today
-
-ERROR: US01: Birth date of @I23@ greater than today
-
-ERROR: US01: Birth date of @I30@ greater than today
-
-ERROR: US01: Birth date of @I3@ greater than today
-
-ERROR: US01: Birth date of @I28@ greater than today
-
-ERROR: US01: Birth date of @I31@ greater than today
-
+ERROR: US07: Future birth date of individual-id @I9@
+ERROR: US07: Future birth date of individual-id @I20@
+ERROR: US07: Future birth date of individual-id @I24@
+ERROR: US07: Future birth date of individual-id @I37@
+ERROR: US07: Future birth date of individual-id @I3@
 ERROR: US01: Birth date of @I29@ greater than today
-
-ERROR: US01: Birth date of @I25@ greater than today
-
-ERROR: US01: Birth date of @I4@ greater than today
 
 INFO: US35: @I39@ is born in last 30 days.
 
-ERROR: US01: Birth date of @I21@ greater than today
-
-ERROR: US01: Birth date of @I20@ greater than today
-
-ERROR: US01: Birth date of @I27@ greater than today
-
-ERROR: US01: Birth date of @I24@ greater than today
+ERROR: US01: Birth date of @I30@ greater than today
 
 ERROR: US01: Birth date of @I36@ greater than today
 
-ERROR: US01: Birth date of @I9@ greater than today
+ERROR: US01: Birth date of @I21@ greater than today
+
+ERROR: US01: Birth date of @I23@ greater than today
+
+ERROR: US01: Birth date of @I27@ greater than today
+
+ERROR: US01: Birth date of @I15@ greater than today
+
+ERROR: US01: Birth date of @I25@ greater than today
+
+ERROR: US01: Birth date of @I31@ greater than today
+
+ERROR: US01: Birth date of @I34@ greater than today
+
+ERROR: US01: Birth date of @I4@ greater than today
+
+ERROR: US01: Birth date of @I28@ greater than today
+
+ERROR: US01: Birth date of @I26@ greater than today
+
+ERROR: US01: Birth date of @I33@ greater than today
 
 ERROR: US01: Birth date of @I32@ greater than today
 
 ERROR: US01: Birth date of @I22@ greater than today
 
-ERROR: US01: Birth date of @I34@ greater than today
+ERROR: US01: Birth date of @I9@ greater than today
 
-ERROR: US01: Birth date of @I15@ greater than today
+ERROR: US01: Birth date of @I20@ greater than today
 
-ERROR: US01: Birth date of @I33@ greater than today
+ERROR: US01: Birth date of @I24@ greater than today
 
-ERROR: US01: Birth date of @I26@ greater than today
+ERROR: US01: Birth date of @I37@ greater than today
+
+ERROR: US01: Birth date of @I3@ greater than today
+
+ERROR: US01: Marriage date of @F13@ greater than today
+
+WARNING: US21: @I12@ Gender is not correct
+
+ERROR: US01: Marriage date of @F1@ greater than today
+
+ERROR: US01: Marriage date of @F11@ greater than today
+
+WARNING: US21: @I16@ Gender is not correct
+
+ERROR: US01: Marriage date of @F5@ greater than today
 
 ERROR: US01: Marriage date of @F14@ greater than today
 
 WARNING: US21: @I34@ Gender is not correct
 
-ERROR: US01: Marriage date of @F1@ greater than today
-
-WARNING: US21: @I12@ Gender is not correct
-
-ERROR: US01: Marriage date of @F5@ greater than today
-
-WARNING: US21: @I9@ Gender is not correct
-
-ERROR: US01: Marriage date of @F13@ greater than today
+ERROR: US01: Marriage date of @F4@ greater than today
 
 ERROR: US01: Marriage date of @F16@ greater than today
 
 WARNING: US21: @I11@ Gender is not correct
 
-ERROR: US01: Marriage date of @F4@ greater than today
-
 ERROR: US01: Marriage date of @F15@ greater than today
 
 WARNING: US21: @I34@ Gender is not correct
-
-ERROR: US01: Marriage date of @F11@ greater than today
-
-WARNING: US21: @I16@ Gender is not correct
 
 INFO: US33: @I42@ Child is orphan.
