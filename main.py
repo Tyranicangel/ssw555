@@ -10,7 +10,7 @@ import prabhjot3
 import pranay3
 import pranay4
 import pranay
-from prettytable import PrettyTable
+from prettytable.pretty_table import PrettyTable
 
 
 # To convert string into Datetime
