@@ -55,7 +55,7 @@ Families
 | @F1@  | 02/10/2017 | 02/10/2016 | @I1@, AKS SUNN      | @I2@, JEN SUN       | @I3@,@I5@                                                                                       |
 | @F2@  | 02/25/1989 | N/A        | @I7@, ALEX SUN      | @I8@, SAM SUN       | @I1@,@I40@                                                                                      |
 | @F3@  | N/A        | N/A        | @I3@, CHRIS SUN     | @I4@, MIKE FROST    | @I20@,@I21@,@I22@,@I23@,@I24@,@I25@,@I26@,@I27@,@I28@,@I29@,@I30@,@I31@,@I32@,@I33@,@I36@,@I37@ |
-| @F4@  | 06/17/2018 | N/A        | @I19@, PEGGY FROST  | @I18@, MIKE FROST   | @I4@,@I39@                                                                                      |
+| @F4@  | 11/17/2015 | N/A        | @I19@, PEGGY FROST  | @I18@, MIKE FROST   | @I4@,@I39@                                                                                      |
 | @F5@  | 08/28/2042 | N/A        | @I1@, AKS SUNN      | @I5@, JENNIFER SUN  | N/A                                                                                             |
 | @F6@  | 01/01/1965 | N/A        | @I12@, SCOTT SUN    | @I13@, EMMA FROST   | @I7@                                                                                            |
 | @F7@  | N/A        | N/A        | @I1@, AKS SUNN      | @I13@, EMMA FROST   | N/A                                                                                             |
@@ -76,23 +76,24 @@ Families
 
 Error: US22: IDs @I13@ have more than one individuals.
 Error: US22: IDs  have more than one families.
+WARNING: US20: In family @F17@ uncle married his niece
+WARNING: US20: In family @F5@ aunt married her nephew
 WARNING: US06: DIVORCE DATE is before Marriage date for @I2@ in family @F1@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I36@,@I37@
 Error: US25: There are 2 children in family @F3@ with the same name and birthday,@I23@,@I24@
-WARNING: US20: In family @F5@ aunt married her nephew
-INFO: US29: Individual DEAN FROST(@I15@) is deceased.
 INFO: US31: Individual EMMA FROST(@I13@) is living single.
-INFO: US29: Individual BRUCE WAYNE(@I11@) is deceased.
 INFO: US29: Individual RICKY SUN(@I40@) is deceased.
 INFO: US29: Individual ANNE PAULSON(@I41@) is deceased.
-INFO: US29: Individual JEN SUN(@I2@) is deceased.
-WARNING: US11: Individual @I34@ is involved in bigamy
-WARNING: US11: Individual @I16@ is involved in bigamy
+INFO: US29: Individual BRUCE WAYNE(@I11@) is deceased.
 INFO: US29: Individual AKS SUNN(@I1@) is deceased.
+WARNING: US11: Individual @I34@ is involved in bigamy
+INFO: US29: Individual JEN SUN(@I2@) is deceased.
+INFO: US29: Individual DEAN FROST(@I15@) is deceased.
 WARNING: US11: Individual @I12@ is involved in bigamy
+WARNING: US11: Individual @I16@ is involved in bigamy
 ERROR: US15: THERE ARE MORE THAN 15 SIBLINGS IN @F3@ FAMILY.
-ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I23@.
 ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I24@.
+ERROR: US13: THERE IS UNUSUAL DIFFERENCE IN DATE OF BIRTH OF @I21@ AND @I23@.
 ERROR : US17 : IN FAMILY @F5@ PARENTS ARE MARRIED WITH THEIR DESCENDANTS.
 ERROR : US17 : IN FAMILY @F7@ PARENTS ARE MARRIED WITH THEIR DESCENDANTS.
 ERROR : US18 : IN FAMILY @F12@ SIBLINGS ARE MARRIED.
@@ -104,8 +105,8 @@ ERROR: US02: BIRTH OF INDIVIDUAL @I15@ IS AFTER ITS MARRIAGE DATE.
 ERROR: US02: BIRTH OF INDIVIDUAL @I22@ IS AFTER ITS MARRIAGE DATE.
 ERROR: US02: BIRTH OF INDIVIDUAL @I23@ IS AFTER ITS MARRIAGE DATE.
 ERROR: US23: INDIVIDUALS @I36@, @I37@ HAVE SAME NAME AND BIRTHDATE.
-ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
 ERROR: US23: INDIVIDUALS @I10@, @I12@ HAVE SAME NAME AND BIRTHDATE.
+ERROR: US23: INDIVIDUALS @I23@, @I24@ HAVE SAME NAME AND BIRTHDATE.
 
 Error: US03: birth of a person @I15@ seems to occur after death
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I2@
@@ -113,105 +114,149 @@ Error: US09: birth of a child @I18@ seems to occur after death of mother or befo
 Error: US09: birth of a child @I3@ seems to occur after death of mother or before nine months of death of father @I1@
 Error: US04: marriage does not occur before divorce of spouses or divorce occurs before marriage in family @F1@
 Error: US16: not all male members of a family @F8@ have the same last name
-Error: US16: not all male members of a family @F2@ have the same last name
 Error: US16: not all male members of a family @F1@ have the same last name
 Error: US16: not all male members of a family @F3@ have the same last name
+Error: US16: not all male members of a family @F2@ have the same last name
 INFO: US37: A person @I1@, who died in the last 30 days, had living relatives @I5@
+INFO: US39: A living couple @F4@ (@I19@, @I18@) discovered whose marriage anniversary is to occur in the next 30 days
 Error: US12: Mother should be less than 60 years older than her children and father should be less than 80 years older than his children: @I34@, @I5@
 Error: US14: More than five siblings in family @F3@ were born at the same time: @I28@, @I29@, @I30@, @I31@, @I32@, @I33@
-Error: US05: Marriage cannot happen after death.
-
-Error: US05: Marriage cannot happen after death.
-
-ERROR: US07: Future birth date of individual-id @I31@
-ERROR: US07: Future birth date of individual-id @I23@
-ERROR: US07: Future birth date of individual-id @I27@
-ERROR: US07: Future birth date of individual-id @I29@
-ERROR: US07: Future birth date of individual-id @I28@
-ERROR: US07: Future birth date of individual-id @I21@
-ERROR: US07: Future birth date of individual-id @I25@
-ERROR: US07: Future birth date of individual-id @I32@
-ERROR: US07: Future birth date of individual-id @I15@
-ERROR: US07: Future birth date of individual-id @I22@
-ERROR: US07: Future birth date of individual-id @I37@
-ERROR: US07: Future birth date of individual-id @I9@
-ERROR: US07: Future birth date of individual-id @I34@
-ERROR: US07: Future birth date of individual-id @I30@
-ERROR: US07: Future birth date of individual-id @I3@
-ERROR: US07: Future birth date of individual-id @I24@
-ERROR: US07: Future birth date of individual-id @I36@
-ERROR: US07: Future birth date of individual-id @I26@
-ERROR: US07: Future birth date of individual-id @I33@
-ERROR: US07: Future birth date of individual-id @I20@
-ERROR: US07: Future birth date of individual-id @I4@
-ERROR: US01: Birth date of @I31@ greater than today
-
-ERROR: US01: Birth date of @I23@ greater than today
-
-ERROR: US01: Birth date of @I27@ greater than today
-
-ERROR: US01: Birth date of @I29@ greater than today
-
-ERROR: US01: Birth date of @I28@ greater than today
-
-ERROR: US01: Birth date of @I21@ greater than today
-
-ERROR: US01: Birth date of @I25@ greater than today
-
 ERROR: US01: Birth date of @I32@ greater than today
-
-ERROR: US01: Birth date of @I15@ greater than today
-
-ERROR: US01: Birth date of @I22@ greater than today
-
-ERROR: US01: Birth date of @I37@ greater than today
-
-ERROR: US01: Birth date of @I9@ greater than today
-
-ERROR: US01: Birth date of @I34@ greater than today
 
 ERROR: US01: Birth date of @I30@ greater than today
 
-ERROR: US01: Birth date of @I3@ greater than today
-
-INFO: US35: @I39@ is born in last 30 days.
-
-ERROR: US01: Birth date of @I24@ greater than today
-
-ERROR: US01: Birth date of @I36@ greater than today
-
-ERROR: US01: Birth date of @I26@ greater than today
+ERROR: US01: Birth date of @I21@ greater than today
 
 ERROR: US01: Birth date of @I33@ greater than today
 
-ERROR: US01: Birth date of @I20@ greater than today
+ERROR: US01: Birth date of @I24@ greater than today
+
+ERROR: US01: Birth date of @I29@ greater than today
+
+ERROR: US01: Birth date of @I23@ greater than today
+
+ERROR: US01: Birth date of @I25@ greater than today
 
 ERROR: US01: Birth date of @I4@ greater than today
 
-WARNING: US21: @I11@ Gender is not correct
+INFO: US35: @I39@ is born in last 30 days.
 
-ERROR: US01: Marriage date of @F13@ greater than today
+ERROR: US01: Birth date of @I31@ greater than today
 
-ERROR: US01: Marriage date of @F16@ greater than today
+ERROR: US01: Birth date of @I22@ greater than today
 
-ERROR: US01: Marriage date of @F11@ greater than today
+ERROR: US01: Birth date of @I26@ greater than today
 
-WARNING: US21: @I16@ Gender is not correct
+ERROR: US01: Birth date of @I34@ greater than today
 
-ERROR: US01: Marriage date of @F4@ greater than today
+ERROR: US01: Birth date of @I36@ greater than today
 
-ERROR: US01: Marriage date of @F1@ greater than today
+ERROR: US01: Birth date of @I27@ greater than today
+
+ERROR: US01: Birth date of @I37@ greater than today
+
+ERROR: US01: Birth date of @I15@ greater than today
+
+ERROR: US01: Birth date of @I28@ greater than today
+
+ERROR: US01: Birth date of @I20@ greater than today
+
+ERROR: US01: Birth date of @I3@ greater than today
+
+ERROR: US01: Birth date of @I9@ greater than today
 
 ERROR: US01: Marriage date of @F15@ greater than today
 
 WARNING: US21: @I34@ Gender is not correct
 
-WARNING: US21: @I12@ Gender is not correct
+ERROR: US01: Marriage date of @F13@ greater than today
+
+ERROR: US01: Marriage date of @F11@ greater than today
+
+WARNING: US21: @I16@ Gender is not correct
+
+WARNING: US21: @I11@ Gender is not correct
+
+ERROR: US01: Marriage date of @F16@ greater than today
 
 ERROR: US01: Marriage date of @F14@ greater than today
 
 WARNING: US21: @I34@ Gender is not correct
 
+WARNING: US21: @I12@ Gender is not correct
+
 ERROR: US01: Marriage date of @F5@ greater than today
 
+ERROR: US01: Marriage date of @F1@ greater than today
+
 INFO: US33: @I42@ Child is orphan.
+
+INFO: US08: @I18@ is born after parents marriage.
+
+INFO: US08: @I7@ is born after parents marriage.
+
+INFO: US08: @I4@ is born after parents marriage.
+
+INFO: US08: @I39@ is born after parents marriage.
+
+INFO: US08: @I3@ is born after parents marriage.
+
+WARNING: US08: @I5@ is born before parents marriage.
+
+INFO: US08: @I1@ is born after parents marriage.
+
+WARNING: US08: @I40@ is born before parents marriage.
+
+INFO: US10: Both spouses @I35@, @I34@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I34@, @I32@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I17@, @I16@ were more than 14 years old at the time of their marriage.
+
+ERROR: US05: Marriage cannot happen after death of either spouse, family-id:@F10@
+
+INFO: US10: Both spouses @I34@, @I36@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I33@, @I34@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I10@, @I12@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I12@, @I13@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I19@, @I18@ were more than 14 years old at the time of their marriage.
+
+INFO: US10: Both spouses @I1@, @I5@ were more than 14 years old at the time of their marriage.
+
+ERROR: US05: Marriage cannot happen after death of either spouse, family-id:@F5@
+
+INFO: US10: Both spouses @I1@, @I2@ were more than 14 years old at the time of their marriage.
+
+ERROR: US05: Marriage cannot happen after death of either spouse, family-id:@F1@
+
+INFO: US10: Both spouses @I7@, @I8@ were more than 14 years old at the time of their marriage.
+
+INFO: US07: Age is less than 150 years for individual @I10@
+INFO: US07: Age is less than 150 years for individual @I11@
+INFO: US07: Age is less than 150 years for individual @I12@
+INFO: US07: Age is less than 150 years for individual @I13@
+INFO: US07: Age is less than 150 years for individual @I16@
+INFO: US07: Age is less than 150 years for individual @I17@
+INFO: US07: Age is less than 150 years for individual @I18@
+INFO: US07: Age is less than 150 years for individual @I19@
+INFO: US07: Age is less than 150 years for individual @I1@
+INFO: US07: Age is less than 150 years for individual @I2@
+INFO: US07: Age is less than 150 years for individual @I35@
+INFO: US07: Age is less than 150 years for individual @I38@
+INFO: US07: Age is less than 150 years for individual @I39@
+INFO: US07: Age is less than 150 years for individual @I40@
+INFO: US07: Age is less than 150 years for individual @I41@
+INFO: US07: Age is less than 150 years for individual @I42@
+INFO: US07: Age is less than 150 years for individual @I5@
+INFO: US07: Age is less than 150 years for individual @I6@
+INFO: US07: Age is less than 150 years for individual @I7@
+INFO: US07: Age is less than 150 years for individual @I8@
+INFO: US07: Age at time of death less than 150 years for individual @I11@
+INFO: US07: Age at time of death less than 150 years for individual @I1@
+INFO: US07: Age at time of death less than 150 years for individual @I2@
+INFO: US07: Age at time of death less than 150 years for individual @I40@
+INFO: US07: Age at time of death less than 150 years for individual @I41@

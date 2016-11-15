@@ -7,10 +7,8 @@ import common
 import akshay
 import prad
 import prabhjot3
-import pranay3
-import pranay4
 import pranay
-from prettytable.pretty_table import PrettyTable
+from pretty_table import PrettyTable
 
 
 # To convert string into Datetime
@@ -195,7 +193,7 @@ for key in sorted ( maindict[ 'FAM' ] , key=lambda x: int ( x.replace ( '@' , ""
     pretty_response_fam.add_row ( [ fam_id , marriage_date , divorce_date , husband , wife , children] )
 
 # Executing all scripts and combining maindictputs
-response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot3.run ( maindict ) + pranay3.run ( maindict ) + pranay4.run ( maindict ) + pranay.run (maindict)
+response += prad.run ( maindict ) + akshay.run ( maindict ) + prabhjot3.run ( maindict )  + pranay.run (maindict)
 
 # Response file
 writer = open ( 'reponse_' + fname + '.txt' , 'w' )
